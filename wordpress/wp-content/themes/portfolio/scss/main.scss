@@ -1,0 +1,13 @@
+@import "variables";
+
+html {
+
+    a {
+        color: green;
+        text-decoration: none;
+
+        &:hover {
+            color: red;
+        }
+    }
+}

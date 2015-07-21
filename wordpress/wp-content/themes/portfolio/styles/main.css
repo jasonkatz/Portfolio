@@ -1,0 +1,9 @@
+html a {
+  color: green;
+  text-decoration: none;
+}
+html a:hover {
+  color: red;
+}
+
+/*# sourceMappingURL=main.css.map */

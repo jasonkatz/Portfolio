@@ -16,7 +16,11 @@ include("header.php"); ?>
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-        <?php echo get_field('name'); ?>
+        <div class="header__top">
+            <div class="header__top--title type-1">
+                <?php echo get_field('name'); ?>
+            </div>
+        </div>
 
     <?php endwhile; // End of post loop ?>
 

@@ -1,9 +1,31 @@
+.type-1 {
+  font-size: 72pt;
+  font-family: "Poiret One";
+  font-weight: 600;
+  line-height: 150px;
+  letter-spacing: 5px;
+}
+
 html a {
   color: green;
   text-decoration: none;
 }
 html a:hover {
   color: red;
+}
+
+.header__top {
+  background: #4bc7ac;
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.header__top .header__top--title {
+  color: white;
+  padding: 75px 0px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */

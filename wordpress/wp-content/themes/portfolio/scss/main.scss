@@ -1,4 +1,5 @@
-@import "variables";
+@import 'constants';
+@import 'typography';
 
 html {
 
@@ -9,5 +10,20 @@ html {
         &:hover {
             color: red;
         }
+    }
+}
+
+.header__top {
+    background: #4bc7ac;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .header__top--title {
+        color: white;
+        padding: 75px 0px;
+        text-align: center;
     }
 }

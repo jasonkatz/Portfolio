@@ -16,7 +16,7 @@ include("header.php"); ?>
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-        <?php the_content(); ?>
+        <?php echo get_field('name'); ?>
 
     <?php endwhile; // End of post loop ?>
 

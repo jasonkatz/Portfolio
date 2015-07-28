@@ -25,3 +25,6 @@ www/data/*
 
 # Logs
 /log/*
+
+# Sass Cache
+**.sass-cache**

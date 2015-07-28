@@ -2,30 +2,126 @@
   font-size: 72pt;
   font-family: "Poiret One";
   font-weight: 600;
-  line-height: 150px;
+  line-height: 200px;
   letter-spacing: 5px;
 }
 
-html a {
-  color: green;
-  text-decoration: none;
-}
-html a:hover {
-  color: red;
+.type-2 {
+  font-size: 14pt;
+  font-family: "Poiret One";
+  line-height: 75px;
+  letter-spacing: 2px;
 }
 
-.header__top {
-  background: #4bc7ac;
-  height: 300px;
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body, #page, #wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+header {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
 }
-.header__top .header__top--title {
+header .header__top {
+  background: #4bc7ac;
+  height: 200px;
+}
+header .header__top .header__top--text {
   color: white;
-  padding: 75px 0px;
   text-align: center;
+}
+header .header__menu {
+  background: #262626;
+  height: 75px;
+  text-align: center;
+}
+header .header__menu .header__menu--items {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+header .header__menu .header__menu--items .header__menu--item {
+  width: 33%;
+  height: 100%;
+  border-right: 0px solid white;
+  float: left;
+  text-align: center;
+  line-height: 75px;
+  color: white;
+  border-left: 1px solid white;
+}
+header .header__menu .header__menu--items .header__menu--item:last-child {
+  border-right: 1px solid white;
+}
+
+.page__wrapper {
+  position: absolute;
+  top: 275px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.page__wrapper .content .content__rows {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+}
+.page__wrapper .content .content__rows .content__row {
+  line-height: 50px;
+}
+
+section {
+  position: relative;
+}
+section .section__content {
+  height: 100vh;
+}
+section .chevron__wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100px;
+  z-index: 1;
+  background: #262626;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

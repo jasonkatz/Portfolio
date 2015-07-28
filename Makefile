@@ -6,7 +6,8 @@ SASS_CSS_BUILD_MAIN_CSS=$(SASS_BUILD_DIR)/main.css
 SASS_CSS_BUILD_MAIN_MAP=$(SASS_BUILD_DIR)/main.css.map
 ROOT_JS_DIR=$(PROJECT_ROOT_DIR)/www/wp-content/themes/portfolio/javascript
 
-restart: sass
+restart: sass browserify
+	sudo service apache2 restart
 
 sass: FORCE
 	mkdir -p $(SASS_CSS_BUILD_DIR)
@@ -15,9 +16,6 @@ sass: FORCE
 watch-sass: FORCE
 	mkdir -p $(SASS_CSS_BUILD_DIR)
 	sass --watch --style expanded $(SASS_SCSS_DIR):$(SASS_CSS_BUILD_DIR)
-
-#browserify: FORCE
-#	browserify www/wp-content/themes/portfolio/javascript/main.js -o www/wp-content/themes/portfolio/javascript/build/bundle.js
 
 browserify: FORCE
 	cd $(ROOT_JS_DIR) ; node ./node_modules/gulp/bin/gulp.js bundle

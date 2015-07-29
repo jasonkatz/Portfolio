@@ -23,7 +23,6 @@ html {
 
 html, body, #page, #wrapper {
   height: 100%;
-  overflow: hidden;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -78,17 +77,19 @@ header .header__menu .header__menu--items {
   margin: 0 auto;
 }
 header .header__menu .header__menu--items .header__menu--item {
-  width: 33%;
+  width: 30%;
   height: 100%;
-  border-right: 0px solid white;
   float: left;
   text-align: center;
   line-height: 75px;
   color: white;
-  border-left: 1px solid white;
 }
-header .header__menu .header__menu--items .header__menu--item:last-child {
-  border-right: 1px solid white;
+header .header__menu .header__menu--items .header__menu--divider {
+  width: 5%;
+  height: 100%;
+  float: left;
+  background: #fff;
+  border: 10px solid #262626;
 }
 
 .page__wrapper {

@@ -29,8 +29,12 @@ include("header.php"); ?>
                         <div class="header__menu--item type-2">
                             Item 1 
                         </div>
+                        <div class="header__menu--divider">
+                        </div>
                         <div class="header__menu--item type-2">
                             Item 2 
+                        </div>
+                        <div class="header__menu--divider">
                         </div>
                         <div class="header__menu--item type-2">
                             Item 3
@@ -40,9 +44,6 @@ include("header.php"); ?>
             </header>
 
             <div id="wrapper">
-
-                <div style="position: absolute; top: 275px; left: 0; height: 3000px; width: 100%; background: linear-gradient(red, blue);">
-                </div>
 
                 <!--<div class="content">
                     <div class="content__rows">
@@ -71,7 +72,7 @@ include("header.php"); ?>
 
                 </div>-->
 
-                <section>
+                <section class="js-slide">
                     <!-- Insert content here -->
                     <div class="section__content">
                     </div>
@@ -79,7 +80,15 @@ include("header.php"); ?>
                     </div>
                 </section>
 
-                <section>
+                <section class="js-slide">
+                    <!-- Insert content here -->
+                    <div class="section__content">
+                    </div>
+                    <div class="chevron__wrapper">
+                    </div>
+                </section>
+
+                <section class="js-slide">
                     <!-- Insert content here -->
                     <div class="section__content">
                     </div>

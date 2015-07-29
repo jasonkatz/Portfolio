@@ -56,7 +56,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 }
 header .header__top {
   background: #4bc7ac;
@@ -88,8 +88,22 @@ header .header__menu .header__menu--items .header__menu--divider {
   width: 5%;
   height: 100%;
   float: left;
-  background: #fff;
+  background: black;
   border: 10px solid #262626;
+}
+
+header.header__mini .header__top {
+  float: left;
+  height: 75px;
+  width: 20%;
+}
+header.header__mini .header__top .header__top--text {
+  font-size: 12pt;
+  line-height: 75px;
+}
+header.header__mini .header__menu {
+  width: 80%;
+  float: left;
 }
 
 .page__wrapper {

@@ -5,8 +5,9 @@ module.exports = {
     init    :   initScroll
 }
 
+// Set up hash of slide elements with before, after and current variables
 var html_slides = document.getElementsByClassName('js-slide');
-var slides = [].slice.call(html_slides); 
+var slides = [].slice.call(html_slides);
 var slides_hash = {};
 for (var i = 0; i < slides.length; ++i) {
     slides_hash[i] = {};
@@ -19,14 +20,16 @@ for (var i = 0; i < slides.length; ++i) {
     slides_hash[i].current = slides[i];
 }
 
+// Initial scroll values
 var current_slide = 0;
 var scrolling = false;
 
 function initScroll() {
+    // Start at slide 1 ALWAYS
     scrollTo(current_slide);
 
+    // Set up scroll event listeners
     var wrapper = document.getElementById('wrapper');
-
     wrapper.addEventListener("mousewheel", snapScroll);
     wrapper.addEventListener("wheel", snapScroll);
     wrapper.addEventListener("DOMMouseScroll", snapScroll);
@@ -39,15 +42,18 @@ function initScroll() {
 function snapScroll(e) {
     e.stopPropagation();
 
+    // Only allow possible scroll if not already scrolling
     if (!scrolling) {
         var dir = getScrollDirection(e);
-        console.log(dir);
+        // Scroll for cases where there is a slide to go to
         if (dir == 'up' && slides_hash[current_slide].before) {
-            current_slide--;
-            scrollTo(current_slide);
+            var new_slide = current_slide - 1;
+            scrollTo(new_slide);
+            current_slide = new_slide;
         } else if (dir == 'down' && slides_hash[current_slide].after) {
-            current_slide++;
-            scrollTo(current_slide);
+            var new_slide = current_slide + 1;
+            scrollTo(new_slide);
+            current_slide = new_slide;
         }
     }
 }
@@ -62,6 +68,11 @@ function scrollTo(slide_num) {
             , easing: "easeInOutCubic"
             , complete: function(element) {
                 scrolling = false;
+                if (slide_num != 0) {
+                    $('header').addClass('header__mini');
+                } else {
+                    $('header').removeClass('header__mini');
+                }
             }
         }
     );

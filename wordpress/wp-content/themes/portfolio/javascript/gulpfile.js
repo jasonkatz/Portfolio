@@ -4,12 +4,14 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var streamify = require('gulp-streamify');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 
 var path = {
-    BUNDLED: 'bundle.js'
-    , MAIN: './main.js'
-    , DESTINATION: 'build'
-    , LIBS_OUT: 'libs.js'
+    BUNDLED_JS: 'bundle.js'
+    , MAIN_JS: './main.js'
+    , DESTINATION_JS: 'build'
+    , LIBS_OUT_JS: 'libs.js'
 }
 
 var excludes = [];
@@ -24,13 +26,13 @@ gulp.task('dependencies', function() {
         console.log(bundle);
     })
     .bundle()
-    .pipe(source(path.LIBS_OUT))
-    .pipe(gulp.dest(path.DESTINATION));
+    .pipe(source(path.LIBS_OUT_JS))
+    .pipe(gulp.dest(path.DESTINATION_JS));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch-js', function() {
     var watcher = watchify(browserify({
-        entries: [path.MAIN]
+        entries: [path.MAIN_JS]
         , debug: true
         , cache: {}, packageCache: {}, fullPaths: true
     }).external(excludes), {poll: 500});
@@ -41,27 +43,43 @@ gulp.task('watch', function() {
                 delete err.stream; // Don't output everything
                 console.log("Syntax error found:", err);
             })
-            .pipe(source(path.BUNDLED))
-            .pipe(gulp.dest(path.DESTINATION));
-        console.log('Updated ' + path.MAIN + ' ' + new Date());
+            .pipe(source(path.BUNDLED_JS))
+            .pipe(gulp.dest(path.DESTINATION_JS));
+        console.log('Updated ' + path.MAIN_JS + ' ' + new Date());
     })
         .bundle()
-        .pipe(source(path.BUNDLED))
-        .pipe(gulp.dest(path.DESTINATION));
+        .pipe(source(path.BUNDLED_JS))
+        .pipe(gulp.dest(path.DESTINATION_JS));
 });
 
 gulp.task('bundle', function() {
     var bundler = browserify({
-        entries: [path.MAIN]
+        entries: [path.MAIN_JS]
         , debug: true
         , cache: {}, packageCache: {}, fullPaths: true
     });
 
     bundler
         .bundle()
-        .pipe(source(path.BUNDLED))
+        .pipe(source(path.BUNDLED_JS))
         .pipe(streamify(uglify()))
-        .pipe(gulp.dest(path.DESTINATION));
+        .pipe(gulp.dest(path.DESTINATION_JS));
+});
+
+gulp.task('sass', function() {
+    gulp.src('../scss/**/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({ outputStyle: 'expanded', errLogToConsole: true })).on('error', console.log.bind(console))
+        .pipe(gulp.dest('../styles'));
+    console.log('Compiled sass ' + new Date());
+});
+
+gulp.task('watch-sass', function() {
+    gulp.watch('../scss/**/*.scss', ['sass']);
+});
+
+gulp.task('watch', function() {
+    gulp.start(['watch-js', 'watch-sass']);
 });
 
 gulp.task('default', ['watch']);

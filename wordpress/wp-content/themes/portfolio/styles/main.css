@@ -58,24 +58,33 @@ header {
   left: 0;
   z-index: 2;
 }
+
 header .header__top {
   background: #4bc7ac;
   height: 200px;
+  width: 100%;
+  float: none;
 }
+
 header .header__top .header__top--text {
   color: white;
   text-align: center;
 }
+
 header .header__menu {
   background: #262626;
   height: 75px;
+  width: 100%;
   text-align: center;
+  float: none;
 }
+
 header .header__menu .header__menu--items {
   width: 100%;
   height: 100%;
   margin: 0 auto;
 }
+
 header .header__menu .header__menu--items .header__menu--item {
   width: 30%;
   height: 100%;
@@ -84,6 +93,7 @@ header .header__menu .header__menu--items .header__menu--item {
   line-height: 75px;
   color: white;
 }
+
 header .header__menu .header__menu--items .header__menu--divider {
   width: 5%;
   height: 100%;
@@ -92,16 +102,23 @@ header .header__menu .header__menu--items .header__menu--divider {
   border: 10px solid #262626;
 }
 
-header.header__mini .header__top {
+header .header__mini {
+  display: none;
+  margin-top: -75px;
+}
+
+header .header__mini .header__top {
   float: left;
   height: 75px;
   width: 20%;
 }
-header.header__mini .header__top .header__top--text {
-  font-size: 12pt;
+
+header .header__mini .header__top .header__top--text {
+  font-size: 16pt;
   line-height: 75px;
 }
-header.header__mini .header__menu {
+
+header .header__mini .header__menu {
   width: 80%;
   float: left;
 }
@@ -113,11 +130,13 @@ header.header__mini .header__menu {
   left: 0;
   right: 0;
 }
+
 .page__wrapper .content .content__rows {
   top: 50%;
   transform: translateY(-50%);
   width: 400px;
 }
+
 .page__wrapper .content .content__rows .content__row {
   line-height: 50px;
 }
@@ -125,9 +144,11 @@ header.header__mini .header__menu {
 section {
   position: relative;
 }
+
 section .section__content {
   height: 100vh;
 }
+
 section .chevron__wrapper {
   position: absolute;
   left: 0;
@@ -138,5 +159,3 @@ section .chevron__wrapper {
   background: #262626;
   cursor: pointer;
 }
-
-/*# sourceMappingURL=main.css.map */

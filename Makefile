@@ -9,18 +9,27 @@ ROOT_JS_DIR=$(PROJECT_ROOT_DIR)/www/wp-content/themes/portfolio/javascript
 restart: sass browserify
 	sudo service apache2 restart
 
+#sass: FORCE
+#	mkdir -p $(SASS_CSS_BUILD_DIR)
+#	sass --update --style compressed $(SASS_SCSS_DIR):$(SASS_CSS_BUILD_DIR)
+
+#watch-sass: FORCE
+#	mkdir -p $(SASS_CSS_BUILD_DIR)
+#	sass --watch --style expanded $(SASS_SCSS_DIR):$(SASS_CSS_BUILD_DIR)
+
 sass: FORCE
-	mkdir -p $(SASS_CSS_BUILD_DIR)
-	sass --update --style compressed $(SASS_SCSS_DIR):$(SASS_CSS_BUILD_DIR)
+	cd $(ROOT_JS_DIR) ; node ./node_modules/gulp/bin/gulp.js sass
 
 watch-sass: FORCE
-	mkdir -p $(SASS_CSS_BUILD_DIR)
-	sass --watch --style expanded $(SASS_SCSS_DIR):$(SASS_CSS_BUILD_DIR)
+	cd $(ROOT_JS_DIR) ; node ./node_modules/gulp/bin/gulp.js watch-sass
 
 browserify: FORCE
 	cd $(ROOT_JS_DIR) ; node ./node_modules/gulp/bin/gulp.js bundle
 
 watch-browserify: FORCE
+	cd $(ROOT_JS_DIR) ; node ./node_modules/gulp/bin/gulp.js watch-js
+
+watch: FORCE
 	cd $(ROOT_JS_DIR) ; node ./node_modules/gulp/bin/gulp.js watch
 
 build-deps: FORCE

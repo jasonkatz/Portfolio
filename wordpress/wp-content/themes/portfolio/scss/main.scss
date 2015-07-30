@@ -49,6 +49,8 @@ header {
     .header__top {
         background: #4bc7ac;
         height: 200px;
+        width: 100%;
+        float: none;
 
         .header__top--text {
             color: white;
@@ -59,7 +61,9 @@ header {
     .header__menu {
         background: #262626;
         height: 75px;
+        width: 100%;
         text-align: center;
+        float: none;
 
         .header__menu--items {
             width: 100%;
@@ -84,25 +88,29 @@ header {
             }
         }
     }
-}
 
-header.header__mini {
-    .header__top {
-        float: left;
-        height: 75px;
-        width: 20%;
+    .header__mini {
+        display: none;
+        margin-top: -75px;
 
-        .header__top--text {
-            font-size: 12pt;
-            line-height: 75px;
+        .header__top {
+            float: left;
+            height: 75px;
+            width: 20%;
+
+            .header__top--text {
+                font-size: 16pt;
+                line-height: 75px;
+            }
+        }
+
+        .header__menu {
+            width: 80%;
+            float: left;
         }
     }
-    
-    .header__menu {
-        width: 80%;
-        float: left;
-    }
 }
+
 
 .page__wrapper {
     position: absolute;

@@ -1,8 +1,16 @@
+var Mediator = require('./Mediator');
 var Velocity = require('velocity-animate');
 var $ = require('jquery');
 
 module.exports = {
     init    :   initScroll
+}
+
+Mediator.register('scroll', module);
+module.receive = receive;
+
+function receive(msg, data) {
+    console.log('received');
 }
 
 // Set up hash of slide elements with before, after and current variables
@@ -141,9 +149,30 @@ function getTouchScrollDirection(e) {
 
 function toggleHeader() {
     console.log('toggling header');
-    if ($('header').hasClass('header__mini')) {
-        $('header').removeClass('header__mini');
-    } else {
-        $('header').addClass('header__mini');
-    }
+    Mediator.send('HEADER_TOGGLE');
+    // TODO: Put this in the Header module
+    Velocity(
+        $('.header__big')
+        , {
+            'opacity': '0'
+        }
+        , {
+            duration: 250
+            , easing: "linear"
+            , complete: function() {
+                $('.header__big').css("display", "none");
+                $('.header__mini').css("display", "block");
+                Velocity(
+                    $('.header__mini')
+                    , {
+                        'margin-top': '0px'
+                    }
+                    , {
+                        duration: 250
+                        , easing: "linear"
+                    }
+                );
+            }
+        }
+    );
 }

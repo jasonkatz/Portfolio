@@ -49,10 +49,18 @@ function snapScroll(e) {
         if (dir == 'up' && slides_hash[current_slide].before) {
             var new_slide = current_slide - 1;
             scrollTo(new_slide);
+            // TODO: MOVE THIS TO ANOTHER MODULE
+            if (current_slide != new_slide && new_slide == 0) {
+                toggleHeader();
+            }
             current_slide = new_slide;
         } else if (dir == 'down' && slides_hash[current_slide].after) {
             var new_slide = current_slide + 1;
             scrollTo(new_slide);
+            // TODO: MOVE THIS TO ANOTHER MODULE
+            if (current_slide != new_slide && current_slide == 0) {
+                toggleHeader();
+            }
             current_slide = new_slide;
         }
     }
@@ -68,11 +76,6 @@ function scrollTo(slide_num) {
             , easing: "easeInOutCubic"
             , complete: function(element) {
                 scrolling = false;
-                if (slide_num != 0) {
-                    $('header').addClass('header__mini');
-                } else {
-                    $('header').removeClass('header__mini');
-                }
             }
         }
     );
@@ -134,4 +137,13 @@ function getTouchScrollDirection(e) {
     }
 
     return dir;
+}
+
+function toggleHeader() {
+    console.log('toggling header');
+    if ($('header').hasClass('header__mini')) {
+        $('header').removeClass('header__mini');
+    } else {
+        $('header').addClass('header__mini');
+    }
 }

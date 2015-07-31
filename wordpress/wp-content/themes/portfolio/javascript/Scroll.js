@@ -10,7 +10,6 @@ Mediator.register('scroll', module);
 module.receive = receive;
 
 function receive(msg, data) {
-    console.log('received');
 }
 
 // Set up hash of slide elements with before, after and current variables
@@ -57,18 +56,22 @@ function snapScroll(e) {
         if (dir == 'up' && slides_hash[current_slide].before) {
             var new_slide = current_slide - 1;
             scrollTo(new_slide);
-            // TODO: MOVE THIS TO ANOTHER MODULE
+
+            // If we are entering the first slide, show the big header
             if (current_slide != new_slide && new_slide == 0) {
-                toggleHeader();
+                Mediator.send('HEADER_TOGGLE', { size: 'big' });
             }
+
             current_slide = new_slide;
         } else if (dir == 'down' && slides_hash[current_slide].after) {
             var new_slide = current_slide + 1;
             scrollTo(new_slide);
-            // TODO: MOVE THIS TO ANOTHER MODULE
+
+            // If we are leaving the first slide, show the mini header
             if (current_slide != new_slide && current_slide == 0) {
-                toggleHeader();
+                Mediator.send('HEADER_TOGGLE', { size: 'mini' });
             }
+
             current_slide = new_slide;
         }
     }
@@ -145,34 +148,4 @@ function getTouchScrollDirection(e) {
     }
 
     return dir;
-}
-
-function toggleHeader() {
-    console.log('toggling header');
-    Mediator.send('HEADER_TOGGLE');
-    // TODO: Put this in the Header module
-    Velocity(
-        $('.header__big')
-        , {
-            'opacity': '0'
-        }
-        , {
-            duration: 250
-            , easing: "linear"
-            , complete: function() {
-                $('.header__big').css("display", "none");
-                $('.header__mini').css("display", "block");
-                Velocity(
-                    $('.header__mini')
-                    , {
-                        'margin-top': '0px'
-                    }
-                    , {
-                        duration: 250
-                        , easing: "linear"
-                    }
-                );
-            }
-        }
-    );
 }

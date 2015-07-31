@@ -13,6 +13,13 @@
   letter-spacing: 2px;
 }
 
+.type-3 {
+  font-size: 16pt;
+  font-family: "Poiret One";
+  line-height: 75px;
+  letter-spacing: 2px;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -79,10 +86,25 @@ header .header__menu {
   float: none;
 }
 
+header .header__menu .header__mini-section {
+  background: #4bc7ac;
+  height: 100%;
+  width: 0%;
+  float: left;
+}
+
+header .header__menu .header__mini-section .header__mini-section--text {
+  display: none;
+  color: white;
+  text-align: center;
+  opacity: 0;
+}
+
 header .header__menu .header__menu--items {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  float: left;
 }
 
 header .header__menu .header__menu--items .header__menu--item {
@@ -100,27 +122,6 @@ header .header__menu .header__menu--items .header__menu--divider {
   float: left;
   background: black;
   border: 10px solid #262626;
-}
-
-header .header__mini {
-  display: none;
-  margin-top: -75px;
-}
-
-header .header__mini .header__top {
-  float: left;
-  height: 75px;
-  width: 20%;
-}
-
-header .header__mini .header__top .header__top--text {
-  font-size: 16pt;
-  line-height: 75px;
-}
-
-header .header__mini .header__menu {
-  width: 80%;
-  float: left;
 }
 
 .page__wrapper {

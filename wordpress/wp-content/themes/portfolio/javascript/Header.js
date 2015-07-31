@@ -15,15 +15,10 @@ function receive(msg, data) {
     }
 }
 
-var header_big = $('.header__big');
-var header_mini = $('.header__mini');
-
 function initHeader() {
 }
 
 function toggleHeader(size) {
-    console.log('switching to ' + size + ' header');
-
     if (size == 'mini') {
         bigToMiniAnimation();
     } else if (size == 'big') {

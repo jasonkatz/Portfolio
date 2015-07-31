@@ -44,6 +44,13 @@ function initScroll() {
     wrapper.addEventListener("touchstart", snapScroll);
     wrapper.addEventListener("touchmove", snapScroll);
     document.addEventListener("keydown", snapScroll);
+
+    // Bind chevron events
+    for (slide in slides_hash) {
+        if (slides_hash[slide].after) {
+            $(slides_hash[slide].current.getElementsByClassName('chevron__wrapper')).on("click", chevronClick);
+        }
+    }
 }
 
 function snapScroll(e) {
@@ -57,28 +64,32 @@ function snapScroll(e) {
     // Only allow possible scroll if not already scrolling
     if (!scrolling) {
         var dir = getScrollDirection(e);
-        // Scroll for cases where there is a slide to go to
-        if (dir == 'up' && slides_hash[current_slide].before) {
-            var new_slide = current_slide - 1;
-            scrollTo(new_slide);
+        handleScroll(dir);
+    }
+}
 
-            // If we are entering the first slide, show the big header
-            if (current_slide != new_slide && new_slide == 0) {
-                Mediator.send('HEADER_TOGGLE', { size: 'big' });
-            }
+function handleScroll(dir) {
+    // Scroll for cases where there is a slide to go to
+    if (dir == 'up' && slides_hash[current_slide].before) {
+        var new_slide = current_slide - 1;
+        scrollTo(new_slide);
 
-            current_slide = new_slide;
-        } else if (dir == 'down' && slides_hash[current_slide].after) {
-            var new_slide = current_slide + 1;
-            scrollTo(new_slide);
-
-            // If we are leaving the first slide, show the mini header
-            if (current_slide != new_slide && current_slide == 0) {
-                Mediator.send('HEADER_TOGGLE', { size: 'mini' });
-            }
-
-            current_slide = new_slide;
+        // If we are entering the first slide, show the big header
+        if (current_slide != new_slide && new_slide == 0) {
+            Mediator.send('HEADER_TOGGLE', { size: 'big' });
         }
+
+        current_slide = new_slide;
+    } else if (dir == 'down' && slides_hash[current_slide].after) {
+        var new_slide = current_slide + 1;
+        scrollTo(new_slide);
+
+        // If we are leaving the first slide, show the mini header
+        if (current_slide != new_slide && current_slide == 0) {
+            Mediator.send('HEADER_TOGGLE', { size: 'mini' });
+        }
+
+        current_slide = new_slide;
     }
 }
 
@@ -103,8 +114,6 @@ function getScrollDirection(e) {
         return getKeyDownScrollDirection(e);
     } else if (e.type == "mousewheel" || e.type == "wheel" || e.type == "DOMMouseScroll" || e.type == "MozMousePixelScroll") {
         return getWheelScrollDirection(e);
-//    } else if (e.type == "touchstart") {
-//        return getTouchStartScrollDirection(e);
     } else if (e.type == "touchmove") {
         return getTouchScrollDirection(e);
     } else {
@@ -156,4 +165,10 @@ function getTouchScrollDirection(e) {
     }
 
     return dir;
+}
+
+function chevronClick(e) {
+    e.preventDefault();
+
+    handleScroll('down');
 }

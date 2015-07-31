@@ -14,7 +14,8 @@ var path = {
     , LIBS_OUT_JS: 'libs.js'
 }
 
-var excludes = [];
+var excludes = [
+];
 
 gulp.task('dependencies', function() {
     browserify({
@@ -35,7 +36,12 @@ gulp.task('watch-js', function() {
         entries: [path.MAIN_JS]
         , debug: true
         , cache: {}, packageCache: {}, fullPaths: true
-    }).external(excludes), {poll: 500});
+    })
+    .external(excludes)
+    .on('file', function(file, id) {
+        console.log('Finished watching:' , id);
+    })
+    , {poll: 500});
 
     return watcher.on('update', function() {
         watcher.bundle()
@@ -45,11 +51,10 @@ gulp.task('watch-js', function() {
             })
             .pipe(source(path.BUNDLED_JS))
             .pipe(gulp.dest(path.DESTINATION_JS));
-        console.log('Updated ' + path.MAIN_JS + ' ' + new Date());
     })
-        .bundle()
-        .pipe(source(path.BUNDLED_JS))
-        .pipe(gulp.dest(path.DESTINATION_JS));
+    .bundle()
+    .pipe(source(path.BUNDLED_JS))
+    .pipe(gulp.dest(path.DESTINATION_JS));
 });
 
 gulp.task('bundle', function() {

@@ -49,6 +49,11 @@ function initScroll() {
 function snapScroll(e) {
     e.stopPropagation();
 
+    if (e.type == "touchstart") {
+        getTouchStartScrollDirection(e);
+        return;
+    }
+
     // Only allow possible scroll if not already scrolling
     if (!scrolling) {
         var dir = getScrollDirection(e);
@@ -98,8 +103,8 @@ function getScrollDirection(e) {
         return getKeyDownScrollDirection(e);
     } else if (e.type == "mousewheel" || e.type == "wheel" || e.type == "DOMMouseScroll" || e.type == "MozMousePixelScroll") {
         return getWheelScrollDirection(e);
-    } else if (e.type == "touchstart") {
-        return getTouchStartScrollDirection(e);
+//    } else if (e.type == "touchstart") {
+//        return getTouchStartScrollDirection(e);
     } else if (e.type == "touchmove") {
         return getTouchScrollDirection(e);
     } else {
@@ -134,11 +139,14 @@ function getWheelScrollDirection(e) {
 var previous_swipe = 0;
 
 function getTouchStartScrollDirection(e) {
+    e.stopPropagation();
     previous_swipe = e.touches[0].clientY;
     return "";
 }
 
 function getTouchScrollDirection(e) {
+    e.preventDefault();
+
     var dir = "";
 
     if (previous_swipe < e.touches[0].clientY) {

@@ -15,7 +15,8 @@ function receive(msg, data) {
     }
 
     if (msg == 'PAGE_SCROLL') {
-        shiftArrow(data.slide_num);
+        current_state = data.slide_num;
+        shiftArrow();
     }
 }
 
@@ -29,6 +30,8 @@ var header_item_list = [].slice.call(html_header_items);
 var header_arrow = document.getElementsByClassName('js-header__menu--arrow');
 
 function initHeader() {
+    current_state = 0;
+    shiftArrow(current_state);
 }
 
 function toggleHeader(size) {
@@ -144,9 +147,9 @@ function miniToBigAnimation() {
     );
 }
 
-function shiftArrow(slide_num) {
+function shiftArrow() {
     // Must shift using percentage since menu will change size
-    var active_item = $(header_item_list[slide_num]);
+    var active_item = $(header_item_list[current_state]);
     var element_center = active_item.offset().left + active_item.outerWidth() / 2;
     var offset_percentage = (element_center - $(header_items).offset().left) / $(header_items).outerWidth() * 100;
 

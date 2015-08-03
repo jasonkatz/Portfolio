@@ -1,5 +1,6 @@
 @import 'constants';
 @import 'typography';
+@import 'fonts';
 
 html {
     box-sizing: border-box;
@@ -47,7 +48,7 @@ header {
     z-index: 2;
 
     .header__top {
-        background: #4bc7ac;
+        background: $color-1;
         height: 200px;
         width: 100%;
         float: none;
@@ -66,7 +67,7 @@ header {
         float: none;
 
         .header__mini-section {
-            background: #4bc7ac;
+            background: $color-1;
             height: 100%;
             width: 0%;
             float: left;
@@ -98,8 +99,9 @@ header {
                 width: 5%;
                 height: 100%;
                 float: left;
-                background: black;
+                background: #363636;
                 border: 10px solid #262626;
+                border-style: inset;
             }
         }
     }
@@ -128,9 +130,19 @@ header {
 
 section {
     position: relative;
+    height: 100vh;
+    width: 100%;
 
     .section__content {
-        height: 100vh;
+        height: 100%;
+        width: 100%;
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
     }
 
     .chevron__wrapper {

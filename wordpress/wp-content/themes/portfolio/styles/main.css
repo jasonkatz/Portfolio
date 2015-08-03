@@ -8,7 +8,7 @@
 
 .type-2 {
   font-size: 14pt;
-  font-family: "Poiret One";
+  font-family: "Open Sans Light";
   line-height: 75px;
   letter-spacing: 2px;
 }
@@ -16,8 +16,59 @@
 .type-3 {
   font-size: 16pt;
   font-family: "Poiret One";
+  font-weight: 600;
   line-height: 75px;
   letter-spacing: 2px;
+}
+
+@font-face {
+  font-family: "Poiret One";
+  src: url(../fonts/Poiret_One/PoiretOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Extra Bold Italic";
+  src: url(../fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Extra Bold";
+  src: url(../fonts/Open_Sans/OpenSans-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Italic";
+  src: url(../fonts/Open_Sans/OpenSans-Italic.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Light Italic";
+  src: url(../fonts/Open_Sans/OpenSans-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Light";
+  src: url(../fonts/Open_Sans/OpenSans-Light.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Semibold Italic";
+  src: url(../fonts/Open_Sans/OpenSans-SemiboldItalic.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Semibold";
+  src: url(../fonts/Open_Sans/OpenSans-Semibold.ttf);
 }
 
 html {
@@ -67,7 +118,7 @@ header {
 }
 
 header .header__top {
-  background: #4bc7ac;
+  background: #50cbee;
   height: 200px;
   width: 100%;
   float: none;
@@ -87,7 +138,7 @@ header .header__menu {
 }
 
 header .header__menu .header__mini-section {
-  background: #4bc7ac;
+  background: #50cbee;
   height: 100%;
   width: 0%;
   float: left;
@@ -120,8 +171,9 @@ header .header__menu .header__menu--items .header__menu--divider {
   width: 5%;
   height: 100%;
   float: left;
-  background: black;
+  background: #363636;
   border: 10px solid #262626;
+  border-style: inset;
 }
 
 .page__wrapper {
@@ -144,10 +196,20 @@ header .header__menu .header__menu--items .header__menu--divider {
 
 section {
   position: relative;
+  height: 100vh;
+  width: 100%;
 }
 
 section .section__content {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+section .section__content .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }
 
 section .chevron__wrapper {

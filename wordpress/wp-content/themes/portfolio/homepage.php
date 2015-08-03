@@ -14,39 +14,42 @@
 
 include("header.php"); ?>
 
-    <!--<div class="content">
-        <div class="content__rows">
-            <div class="content__row">
-                <div class="content__row--animation">
-                </div>
-                <div class="content__row--text">
-                    Developer
-                </div>
-            </div>
-            <div class="content__row">
-                <div class="content__row--animation">
-                </div>
-                <div class="content__row--text">
-                    Engineer
-                </div>
-            </div>
-            <div class="content__row">
-                <div class="content__row--animation">
-                </div>
-                <div class="content__row--text">
-                    Designer
-                </div>
-            </div>
-        </div>
-
-    </div>-->
 
     <section class="js-slide">
-        <!-- Insert content here -->
+
         <div class="section__content">
-        </div>
+            <div class="content">
+
+                <div class="content__rows">
+                    <div class="content__row">
+                        <div class="content__row--animation">
+                        </div>
+                        <div class="content__row--text">
+                            Developer
+                        </div>
+                    </div>
+                    <div class="content__row">
+                        <div class="content__row--animation">
+                        </div>
+                        <div class="content__row--text">
+                            Engineer
+                        </div>
+                    </div>
+                    <div class="content__row">
+                        <div class="content__row--animation">
+                        </div>
+                        <div class="content__row--text">
+                            Designer
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- content -->
+        </div> <!-- section__content -->
+
         <div class="chevron__wrapper">
         </div>
+
     </section>
 
     <section class="js-slide">

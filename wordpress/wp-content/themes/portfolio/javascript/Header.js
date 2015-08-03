@@ -13,7 +13,20 @@ function receive(msg, data) {
     if (msg == 'HEADER_TOGGLE') {
         toggleHeader(data.size);
     }
+
+    if (msg == 'PAGE_SCROLL') {
+        shiftArrow(data.slide_num);
+    }
 }
+
+// Get relevant header elements
+var header_top = document.getElementsByClassName('js-header__top');
+var header_mini_section = document.getElementsByClassName('js-header__mini-section');
+var header_menu = document.getElementsByClassName('js-header__menu');
+var header_items = document.getElementsByClassName('js-header__menu--items');
+var html_header_items = document.getElementsByClassName('js-header__menu--item');
+var header_item_list = [].slice.call(html_header_items);
+var header_arrow = document.getElementsByClassName('js-header__menu--arrow');
 
 function initHeader() {
 }
@@ -30,7 +43,7 @@ function bigToMiniAnimation() {
     // Define menu animation so we don't have a huge complete block
     var animateMenu = function() {
         Velocity(
-            $('.header__menu--items')
+            $(header_items)
             , {
                 'width': '75%'
             }
@@ -40,7 +53,7 @@ function bigToMiniAnimation() {
             }
         );
         Velocity(
-            $('.header__mini-section')
+            $(header_mini_section)
             , {
                 'width': '25%'
             }
@@ -95,7 +108,7 @@ function miniToBigAnimation() {
     }
 
     Velocity(
-        $('.header__menu--items')
+        $(header_items)
         , {
             'width': '100%'
         }
@@ -105,7 +118,7 @@ function miniToBigAnimation() {
         }
     );
     Velocity(
-        $('.header__mini-section')
+        $(header_mini_section)
         , {
             'width': '0%'
         }
@@ -127,6 +140,24 @@ function miniToBigAnimation() {
                 // Then expand the header downwards
                 animateHeader();
             }
+        }
+    );
+}
+
+function shiftArrow(slide_num) {
+    // Must shift using percentage since menu will change size
+    var active_item = $(header_item_list[slide_num]);
+    var element_center = active_item.offset().left + active_item.outerWidth() / 2;
+    var offset_percentage = (element_center - $(header_items).offset().left) / $(header_items).outerWidth() * 100;
+
+    Velocity(
+        $(header_arrow)
+        , {
+            'left': offset_percentage + '%'
+        }
+        , {
+            duration: 500
+            , easing: 'easeInOutCubic'
         }
     );
 }

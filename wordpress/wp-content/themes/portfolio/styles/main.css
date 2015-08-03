@@ -156,6 +156,7 @@ header .header__menu .header__menu--items {
   height: 100%;
   margin: 0 auto;
   float: left;
+  position: relative;
 }
 
 header .header__menu .header__menu--items .header__menu--item {
@@ -174,6 +175,17 @@ header .header__menu .header__menu--items .header__menu--divider {
   background: #363636;
   border: 10px solid #262626;
   border-style: inset;
+}
+
+header .header__menu .header__menu--items .header__menu--arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
 }
 
 .page__wrapper {

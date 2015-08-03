@@ -106,6 +106,7 @@ function scrollTo(slide_num) {
             }
         }
     );
+    Mediator.send('PAGE_SCROLL', { slide_num: slide_num });
 }
 
 

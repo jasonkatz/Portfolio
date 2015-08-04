@@ -96,13 +96,27 @@ header {
                 color: white;
             }
 
-            .header__menu--divider {
+            /*.header__menu--divider {
                 width: 5%;
                 height: 100%;
                 float: left;
                 background: #363636;
                 border: 10px solid #262626;
                 border-style: inset;
+            }*/
+
+            .header__menu--divider {
+                width: 5%;
+                height: 100%;
+                float: left;
+
+                img {
+                    display: block;
+                    margin: auto;
+                    width: 100%;
+                    height: 100%;
+                    padding: 20px;
+                }
             }
 
             .header__menu--arrow {

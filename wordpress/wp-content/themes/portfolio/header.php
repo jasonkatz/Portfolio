@@ -31,11 +31,13 @@ include 'utils/vars.php'
                         Item 1
                     </div>
                     <div class="header__menu--divider">
+                        <img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">
                     </div>
                     <div class="header__menu--item js-header__menu--item type-2">
                         Item 2
                     </div>
                     <div class="header__menu--divider">
+                        <img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">
                     </div>
                     <div class="header__menu--item js-header__menu--item type-2">
                         Item 3

@@ -96,15 +96,6 @@ header {
                 color: white;
             }
 
-            /*.header__menu--divider {
-                width: 5%;
-                height: 100%;
-                float: left;
-                background: #363636;
-                border: 10px solid #262626;
-                border-style: inset;
-            }*/
-
             .header__menu--divider {
                 width: 5%;
                 height: 100%;
@@ -127,7 +118,7 @@ header {
                 border-bottom: 10px solid white;
                 position: absolute;
                 top: 100%;
-                transform: translateY(-100%);
+                transform: translateY(-100%) translateX(-50%);
             }
         }
     }

@@ -48,7 +48,7 @@ function initScroll() {
     // Bind chevron events
     for (slide in slides_hash) {
         if (slides_hash[slide].after) {
-            $(slides_hash[slide].current.getElementsByClassName('chevron__wrapper')).on("click", chevronClick);
+            $(slides_hash[slide].current.getElementsByClassName('js-chevron')).on("click", chevronClick);
         }
     }
 }

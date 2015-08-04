@@ -48,6 +48,7 @@ include("header.php"); ?>
         </div> <!-- section__content -->
 
         <div class="chevron__wrapper">
+            <img class="js-chevron" src="http://jasonkatz.me/wp-content/themes/portfolio/images/chevron.svg">
         </div>
 
     </section>
@@ -57,6 +58,7 @@ include("header.php"); ?>
         <div class="section__content">
         </div>
         <div class="chevron__wrapper">
+            <img class="js-chevron" src="http://jasonkatz.me/wp-content/themes/portfolio/images/chevron.svg">
         </div>
     </section>
 

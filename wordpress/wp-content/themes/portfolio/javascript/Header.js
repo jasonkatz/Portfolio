@@ -32,6 +32,12 @@ var header_arrow = document.getElementsByClassName('js-header__menu--arrow');
 function initHeader() {
     current_state = 0;
     shiftArrow(current_state);
+
+    $(header_item_list).each(function(index, obj) {
+        $(obj).on("click", function(e) {
+            Mediator.send('HEADER_ITEM_CLICK', { item_num: index });
+        });
+    });
 }
 
 function toggleHeader(size) {

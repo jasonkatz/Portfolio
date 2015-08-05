@@ -24,22 +24,22 @@ include("header.php"); ?>
                     <div class="content__row">
                         <div class="content__row--animation">
                         </div>
-                        <div class="content__row--text">
-                            Developer
+                        <div class="content__row--text type-4">
+                            <?php echo get_field('slide_1_content_1'); ?>
                         </div>
                     </div>
                     <div class="content__row">
                         <div class="content__row--animation">
                         </div>
-                        <div class="content__row--text">
-                            Engineer
+                        <div class="content__row--text type-4">
+                            <?php echo get_field('slide_1_content_2'); ?>
                         </div>
                     </div>
                     <div class="content__row">
                         <div class="content__row--animation">
                         </div>
-                        <div class="content__row--text">
-                            Designer
+                        <div class="content__row--text type-4">
+                            <?php echo get_field('slide_1_content_3'); ?>
                         </div>
                     </div>
                 </div>
@@ -56,6 +56,33 @@ include("header.php"); ?>
     <section class="js-slide">
         <!-- Insert content here -->
         <div class="section__content">
+            <div class="content">
+
+                <div class="content__rows">
+                    <div class="content__row">
+                        <div class="content__row--animation">
+                        </div>
+                        <div class="content__row--text type-4">
+                            <?php echo get_field('slide_1_content_1'); ?>
+                        </div>
+                    </div>
+                    <div class="content__row">
+                        <div class="content__row--animation">
+                        </div>
+                        <div class="content__row--text type-4">
+                            <?php echo get_field('slide_1_content_2'); ?>
+                        </div>
+                    </div>
+                    <div class="content__row">
+                        <div class="content__row--animation">
+                        </div>
+                        <div class="content__row--text type-4">
+                            <?php echo get_field('slide_1_content_3'); ?>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- content -->
         </div>
         <div class="chevron__wrapper">
             <img class="js-chevron" src="http://jasonkatz.me/wp-content/themes/portfolio/images/chevron.svg">

@@ -10,6 +10,9 @@ Mediator.register('scroll', module);
 module.receive = receive;
 
 function receive(msg, data) {
+    if (msg == 'HEADER_ITEM_CLICK') {
+        jumpScroll(data.item_num);
+    }
 }
 
 // Set up hash of slide elements with before, after and current variables
@@ -56,6 +59,11 @@ function initScroll() {
 function snapScroll(e) {
     e.stopPropagation();
 
+    // Prevent default keyboard behavior for pageup, pagedown, home and end
+    if (e.type == "keydown" && (e.which >= 33 && e.which <= 36)) {
+        e.preventDefault();
+    }
+
     if (e.type == "touchstart") {
         getTouchStartScrollDirection(e);
         return;
@@ -93,6 +101,19 @@ function handleScroll(dir) {
     }
 }
 
+function jumpScroll(new_slide) {
+    scrollTo(new_slide);
+
+    // If we are entering the first slide, show the big header
+    if (current_slide != new_slide && new_slide == 0) {
+        Mediator.send('HEADER_TOGGLE', { size: 'big' });
+    } else if (current_slide != new_slide && current_slide == 0) {
+        Mediator.send('HEADER_TOGGLE', { size: 'mini' });
+    }
+
+    current_slide = new_slide;
+}
+
 function scrollTo(slide_num) {
     scrolling = true;
     Velocity(
@@ -123,9 +144,11 @@ function getScrollDirection(e) {
 }
 
 function getKeyDownScrollDirection(e) {
-    if (e.which == 40) {
+    if (e.which == 40 || e.which == 39 || e.which == 34) {
+        // Scroll down on downarrow, leftarrow and pagedown
         return 'down';
-    } else if (e.which == 38) {
+    } else if (e.which == 38 || e.which == 37 || e.which == 33) {
+        // Scroll up on uparrow, rightarrow and pageup
         return 'up';
     } else {
         return "";

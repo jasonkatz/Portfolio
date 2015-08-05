@@ -94,6 +94,135 @@ header {
                 text-align: center;
                 line-height: 75px;
                 color: white;
+                cursor: pointer;
+
+                // Menu hover effects, courtesy of hover.css
+                &:not(:first-child):not(:last-child) {
+                    display: inline-block;
+                    vertical-align: middle;
+                    -webkit-transform: translateZ(0);
+                    transform: translateZ(0);
+                    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    -moz-osx-font-smoothing: grayscale;
+                    position: relative;
+                    -webkit-transition-property: color;
+                    transition-property: color;
+                    -webkit-transition-duration: 0.1s;
+                    transition-duration: 0.1s;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        z-index: -1;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: $color-2;
+                        -webkit-transform: scaleY(0);
+                        transform: scaleY(0);
+                        -webkit-transform-origin: 50% 100%;
+                        transform-origin: 50% 100%;
+                        -webkit-transition-property: transform;
+                        transition-property: transform;
+                        -webkit-transition-duration: 0.1s;
+                        transition-duration: 0.1s;
+                        -webkit-transition-timing-function: ease-out;
+                        transition-timing-function: ease-out;
+                    }
+                    &:hover, &:focus, &:active {
+                        color: white;
+                    }
+                    &:hover:before, &:focus:before, &:active:before {
+                        -webkit-transform: scaleY(1);
+                        transform: scaleY(1);
+                    }
+                }
+                &:first-child {
+                    display: inline-block;
+                    vertical-align: middle;
+                    -webkit-transform: translateZ(0);
+                    transform: translateZ(0);
+                    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    -moz-osx-font-smoothing: grayscale;
+                    position: relative;
+                    -webkit-transition-property: color;
+                    transition-property: color;
+                    -webkit-transition-duration: 0.1s;
+                    transition-duration: 0.1s;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        z-index: -1;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: $color-2;
+                        -webkit-transform: scaleX(0);
+                        transform: scaleX(0);
+                        -webkit-transform-origin: 0 50%;
+                        transform-origin: 0 50%;
+                        -webkit-transition-property: transform;
+                        transition-property: transform;
+                        -webkit-transition-duration: 0.1s;
+                        transition-duration: 0.1s;
+                        -webkit-transition-timing-function: ease-out;
+                        transition-timing-function: ease-out;
+                    }
+                    &:hover, &:focus, &:active {
+                        color: white;
+                    }
+                    &:hover:before, &:focus:before, &:active:before {
+                        -webkit-transform: scaleX(1);
+                        transform: scaleX(1);
+                    }
+                }
+                &:last-child {
+                    display: inline-block;
+                    vertical-align: middle;
+                    -webkit-transform: translateZ(0);
+                    transform: translateZ(0);
+                    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    -moz-osx-font-smoothing: grayscale;
+                    position: relative;
+                    -webkit-transition-property: color;
+                    transition-property: color;
+                    -webkit-transition-duration: 0.1s;
+                    transition-duration: 0.1s;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        z-index: -1;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: $color-2;
+                        -webkit-transform: scaleX(0);
+                        transform: scaleX(0);
+                        -webkit-transform-origin: 100% 50%;
+                        transform-origin: 100% 50%;
+                        -webkit-transition-property: transform;
+                        transition-property: transform;
+                        -webkit-transition-duration: 0.1s;
+                        transition-duration: 0.1s;
+                        -webkit-transition-timing-function: ease-out;
+                        transition-timing-function: ease-out;
+                    }
+                    &:hover, &:focus, &:active {
+                        color: white;
+                    }
+                    &:hover:before, &:focus:before, &:active:before {
+                        -webkit-transform: scaleX(1);
+                        transform: scaleX(1);
+                    }
+                }
             }
 
             .header__menu--divider {
@@ -106,11 +235,12 @@ header {
                     margin: auto;
                     width: 100%;
                     height: 100%;
-                    padding: 20px;
+                    padding: 10px;
                 }
             }
 
             .header__menu--arrow {
+                z-index: 1;
                 width: 0;
                 height: 0;
                 border-left: 10px solid transparent;
@@ -150,6 +280,12 @@ section {
     height: 100vh;
     width: 100%;
 
+    // Move content down on the first slide
+    // so that the big header doesnt get in the way
+    &:first-child .section__content .content {
+        top: 55%;
+    }
+
     .section__content {
         height: 100%;
         width: 100%;
@@ -160,6 +296,7 @@ section {
             left: 50%;
             transform: translateY(-50%) translateX(-50%);
         }
+
     }
 
     .chevron__wrapper {

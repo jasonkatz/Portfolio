@@ -10,6 +10,8 @@ include 'utils/vars.php'
 
         <link rel="icon" href="<?php echo $THEME_URI ?>/favicon.ico" />
         <link rel="shortcut icon" href="<?php echo $THEME_URI ?>/favicon.ico" />
+
+        <script src="<?php echo $THEME_URI ?>/javascript/modernizr.js"></script>
     </head>
 
     <div id="page">
@@ -30,6 +32,9 @@ include 'utils/vars.php'
                     <div class="header__menu--item js-header__menu--item type-2">
                         Item 1
                     </div>
+                    <!-- Put this here so it doesn't interfere with first/last item selection in css -->
+                    <div class="header__menu--arrow js-header__menu--arrow">
+                    </div>
                     <div class="header__menu--divider">
                         <img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">
                     </div>
@@ -41,8 +46,6 @@ include 'utils/vars.php'
                     </div>
                     <div class="header__menu--item js-header__menu--item type-2">
                         Item 3
-                    </div>
-                    <div class="header__menu--arrow js-header__menu--arrow">
                     </div>
                 </div>
             </div>

@@ -26,6 +26,13 @@ www/data/*
 # Logs
 /log/*
 
+# Sass
+wordpress/wp-content/themes/portfolio/styles/build/*.css
+wordpress/wp-content/themes/portfolio/styles/build/*.map
+
+# Browserify
+wordpress/wp-content/themes/portfolio/javascript/build/*.js
+wordpress/wp-content/themes/portfolio/javascript/build/*.map
+
 # Sass Cache
-**/.sass-cache/**
-/.sass-cache/**
+wordpress/wp-content/themes/*/scss/!/.sass-cache/*

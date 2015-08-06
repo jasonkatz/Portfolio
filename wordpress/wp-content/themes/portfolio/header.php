@@ -30,7 +30,7 @@ include 'utils/vars.php'
                 </div>
                 <div class="header__menu--items js-header__menu--items">
                     <div class="header__menu--item js-header__menu--item type-2">
-                        Item 1
+                        <?php echo get_field('slide_1_title'); ?>
                     </div>
                     <!-- Put this here so it doesn't interfere with first/last item selection in css -->
                     <div class="header__menu--arrow js-header__menu--arrow">
@@ -39,13 +39,13 @@ include 'utils/vars.php'
                         <img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">
                     </div>
                     <div class="header__menu--item js-header__menu--item type-2">
-                        Item 2
+                        <?php echo get_field('slide_2_title'); ?>
                     </div>
                     <div class="header__menu--divider">
                         <img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">
                     </div>
                     <div class="header__menu--item js-header__menu--item type-2">
-                        Item 3
+                        <?php echo get_field('slide_3_title'); ?>
                     </div>
                 </div>
             </div>

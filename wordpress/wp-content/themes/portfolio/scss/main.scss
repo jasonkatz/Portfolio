@@ -294,12 +294,46 @@ section {
         width: 100%;
 
         .content {
+            // Content structure styling
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translateY(-50%) translateX(-50%);
-        }
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
 
+            .content__row--wrapper {
+                display: inline-block;
+
+                .content__row {
+                    overflow: hidden;
+                    text-align: center;
+
+                    .content__column--wrapper {
+                        overflow: hidden;
+                        display: inline-block;
+
+                        .content__column {
+                            float: left;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+
+            // Specific content styling
+            .content__animation {
+                width: 100px;
+                height: 100px;
+                background: $color-1;
+            }
+            .content__row--text {
+                width: 100px;
+            }
+
+            .content__personal-photo, .content__personal-description {
+                width: 500px;
+            }
+        }
     }
 
     .chevron__wrapper {

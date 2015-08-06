@@ -36,3 +36,7 @@ wordpress/wp-content/themes/portfolio/javascript/build/*.map
 
 # Sass Cache
 wordpress/wp-content/themes/*/scss/!/.sass-cache/*
+
+# Uploads
+wordpress/wp-content/uploads/*
+wordpress/wp-content/uploads

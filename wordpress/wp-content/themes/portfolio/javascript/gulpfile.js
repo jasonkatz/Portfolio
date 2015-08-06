@@ -75,7 +75,7 @@ gulp.task('sass', function() {
     gulp.src('../scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded', errLogToConsole: true })).on('error', console.log.bind(console))
-        .pipe(gulp.dest('../styles'));
+        .pipe(gulp.dest('../styles/build'));
     console.log('Compiled sass ' + new Date());
 });
 

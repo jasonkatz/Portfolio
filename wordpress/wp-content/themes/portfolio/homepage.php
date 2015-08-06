@@ -20,26 +20,46 @@ include("header.php"); ?>
         <div class="section__content">
             <div class="content">
 
-                <div class="content__rows">
+                <div class="content__row--wrapper">
                     <div class="content__row">
-                        <div class="content__row--animation">
-                        </div>
-                        <div class="content__row--text type-4">
-                            <?php echo get_field('slide_1_content_1'); ?>
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__animation">
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__row--text type-4">
+                                    <?php echo get_field('slide_1_content_1'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="content__row">
-                        <div class="content__row--animation">
-                        </div>
-                        <div class="content__row--text type-4">
-                            <?php echo get_field('slide_1_content_2'); ?>
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__animation">
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__row--text type-4">
+                                    <?php echo get_field('slide_1_content_2'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="content__row">
-                        <div class="content__row--animation">
-                        </div>
-                        <div class="content__row--text type-4">
-                            <?php echo get_field('slide_1_content_3'); ?>
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__animation">
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__row--text type-4">
+                                    <?php echo get_field('slide_1_content_3'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,9 +68,39 @@ include("header.php"); ?>
         </div> <!-- section__content -->
 
         <div class="chevron__wrapper">
-            <img class="js-chevron" src="http://jasonkatz.me/wp-content/themes/portfolio/images/chevron.svg">
+            <img class="js-chevron" src="<?php echo $THEME_URI ?>/images/chevron.svg">
         </div>
 
+    </section>
+
+
+    <section class="js-slide">
+        <!-- Insert content here -->
+        <div class="section__content">
+            <div class="content">
+
+                <div class="content__row--wrapper">
+                    <div class="content__row">
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__personal-photo">
+                                    <img src="<?php echo get_field('slide_2_image'); ?>">
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__personal-description type-4">
+                                    This is a test
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="chevron__wrapper">
+            <img class="js-chevron" src="<?php echo $THEME_URI ?>/images/chevron.svg">
+        </div>
     </section>
 
     <section class="js-slide">
@@ -58,40 +108,51 @@ include("header.php"); ?>
         <div class="section__content">
             <div class="content">
 
-                <div class="content__rows">
+                <div class="content__row--wrapper">
                     <div class="content__row">
-                        <div class="content__row--animation">
-                        </div>
-                        <div class="content__row--text type-4">
-                            <?php echo get_field('slide_1_content_1'); ?>
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__animation">
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__row--text type-4">
+                                    <?php echo get_field('slide_1_content_1'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="content__row">
-                        <div class="content__row--animation">
-                        </div>
-                        <div class="content__row--text type-4">
-                            <?php echo get_field('slide_1_content_2'); ?>
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__animation">
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__row--text type-4">
+                                    <?php echo get_field('slide_1_content_2'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="content__row">
-                        <div class="content__row--animation">
-                        </div>
-                        <div class="content__row--text type-4">
-                            <?php echo get_field('slide_1_content_3'); ?>
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__animation">
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__row--text type-4">
+                                    <?php echo get_field('slide_1_content_3'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div> <!-- content -->
-        </div>
-        <div class="chevron__wrapper">
-            <img class="js-chevron" src="http://jasonkatz.me/wp-content/themes/portfolio/images/chevron.svg">
-        </div>
-    </section>
-
-    <section class="js-slide">
-        <!-- Insert content here -->
-        <div class="section__content">
         </div>
     </section>
 

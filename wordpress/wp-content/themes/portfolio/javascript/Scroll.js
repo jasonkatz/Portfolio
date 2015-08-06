@@ -59,8 +59,8 @@ function initScroll() {
 function snapScroll(e) {
     e.stopPropagation();
 
-    // Prevent default keyboard behavior for pageup, pagedown, home and end
-    if (e.type == "keydown" && (e.which >= 33 && e.which <= 36)) {
+    // Prevent default behavior unless the refresh key is hit
+    if (e.type != 'keydown' || (e.which != 82 && e.which != 116)) {
         e.preventDefault();
     }
 

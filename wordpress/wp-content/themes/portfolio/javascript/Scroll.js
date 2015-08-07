@@ -59,8 +59,9 @@ function initScroll() {
 function snapScroll(e) {
     e.stopPropagation();
 
-    // Prevent default behavior unless the refresh key is hit
-    if (e.type != 'keydown' || (e.which != 82 && e.which != 116)) {
+    // Prevent default behavior on touchmove and home/end keypresses
+    if  (e.type == 'touchmove' ||
+        (e.type == 'keydown' && (e.which == 35 || e.which == 36))) {
         e.preventDefault();
     }
 

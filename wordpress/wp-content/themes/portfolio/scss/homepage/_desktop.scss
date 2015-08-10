@@ -220,8 +220,34 @@ print {
     }
 
     section {
+        // Move content down on the first slide
+        // so that the big header doesnt get in the way
         &:first-child .section__content .content {
             top: 55%;
+        }
+
+        .section__content {
+            .content {
+                top: 50%;
+            }
+        }
+
+        .chevron__wrapper {
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 150px;
+            z-index: 1;
+            text-align: center;
+
+            img {
+                margin: auto;
+                height: 100%;
+                padding: 50px;
+                cursor: pointer;
+            }
         }
     }
 

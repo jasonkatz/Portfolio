@@ -16,7 +16,7 @@ function receive(msg, data) {
 
     if (msg == 'PAGE_SCROLL') {
         current_state = data.slide_num;
-        shiftArrow();
+        shiftActive();
     }
 }
 
@@ -36,7 +36,7 @@ function throttle() {
 }
 
 function readjustHeader() {
-    shiftArrow();
+    shiftActive();
     if (current_state == 0) {
         miniToBigAnimation();
     } else {
@@ -63,7 +63,7 @@ var mobile_menu_open = false;
 
 function initHeader() {
     current_state = 0;
-    shiftArrow();
+    shiftActive();
 
     $(header_item_list).each(function(index, obj) {
         $(obj).on("click", function(e) {
@@ -81,7 +81,7 @@ function initHeader() {
     customHeaderOnResize();
 }
 
-function shiftArrow() {
+function shiftActive() {
     // Must shift using percentage since menu will change size
     var active_item = $(header_item_list[current_state]);
     var element_center = active_item.offset().left + active_item.outerWidth() / 2;
@@ -97,10 +97,19 @@ function shiftArrow() {
             , easing: 'easeInOutCubic'
         }
     );
+
+    // Add active class to mobile menu item
+    $(mobile_header_item_list).each(function(index, obj) {
+        if (index == current_state) {
+            $(obj).addClass('mobile-menu__item--active');
+        } else {
+            $(obj).removeClass('mobile-menu__item--active');
+        }
+    });
 }
 
 function initializeHamburger() {
-    $(hamburger_wrapper).on('click', function(e) {
+    $(hamburger_wrapper).on("click", function(e) {
         e.preventDefault();
         mobile_menu_open ? this.classList.remove('is-active') : this.classList.add('is-active');
         mobile_menu_open = !mobile_menu_open;

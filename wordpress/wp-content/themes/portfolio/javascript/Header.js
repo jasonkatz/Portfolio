@@ -102,8 +102,8 @@ function shiftArrow() {
 function initializeHamburger() {
     $(hamburger_wrapper).on('click', function(e) {
         e.preventDefault();
-        mobile_menu_open = !mobile_menu_open;
         mobile_menu_open ? this.classList.remove('is-active') : this.classList.add('is-active');
+        mobile_menu_open = !mobile_menu_open;
         toggleMobileMenu();
     });
 }
@@ -223,7 +223,7 @@ function miniToBigAnimation() {
 
 function toggleMobileMenu() {
     // Slide menu out on open, slide menu in on close
-    if (!mobile_menu_open) {
+    if (mobile_menu_open) {
         Velocity(
             $(header_mobile_menu)
             , {

@@ -1,14 +1,16 @@
 @import 'base';
 
 @import 'constants';
-@import 'typography';
 @import 'fonts';
 
 // Mobile styles
 @import 'homepage/main';
+@import 'typography/main';
 
 // Tablet styles
 @import 'homepage/tablet';
+@import 'typography/tablet';
 
 // Desktop styles
 @import 'homepage/desktop';
+@import 'typography/desktop';

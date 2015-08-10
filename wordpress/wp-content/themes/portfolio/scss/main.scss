@@ -4,13 +4,18 @@
 @import 'fonts';
 
 // Mobile styles
-@import 'homepage/main';
 @import 'typography/main';
+@import 'homepage/main';
+@import 'header/main';
 
 // Tablet styles
-@import 'homepage/tablet';
 @import 'typography/tablet';
+@import 'homepage/tablet';
+@import 'header/tablet';
+
 
 // Desktop styles
-@import 'homepage/desktop';
 @import 'typography/desktop';
+@import 'homepage/desktop';
+@import 'header/desktop';
+

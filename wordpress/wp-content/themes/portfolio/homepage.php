@@ -52,6 +52,37 @@ include("header.php"); ?>
         <div class="section__content">
             <div class="content">
 
+                <div class="content__row--wrapper">
+                    <div class="content__row">
+                        <div class="content__portfolio-title type-5">
+                            <?php echo get_field('slide_2_heading'); ?>
+                        </div>
+                    </div>
+                    <div class="content__row">
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <div class="content__portfolio-block">
+                                    <a href="<?php echo get_field('slide_2_link_1'); ?>" target="_blank">
+                                        <div class="content__portfolio-block--overlay type-6">
+                                            Projects
+                                        </div>
+                                        <img src="<?php echo $THEME_URI ?>/images/gear-icon.svg">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="content__column">
+                                <div class="content__portfolio-block">
+                                    <a href="<?php echo get_field('slide_2_link_2'); ?>" target="_blank">
+                                        <div class="content__portfolio-block--overlay type-6">
+                                            Github
+                                        </div>
+                                        <img src="<?php echo $THEME_URI ?>/images/github-icon.svg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

@@ -50,7 +50,7 @@ print {
                     position: relative;
 
                     .header__menu--item {
-                        width: 30%;
+                        width: 32%;
                         height: 100%;
                         float: left;
                         text-align: center;
@@ -60,9 +60,11 @@ print {
                     }
 
                     .header__menu--divider {
-                        width: 5%;
+                        width: 2%;
                         height: 100%;
                         float: left;
+                        background: $color-2;
+                        box-shadow: inset 0 0 10px black;
 
                         img {
                             display: block;
@@ -114,6 +116,7 @@ print {
                 right: 0;
                 bottom: 0;
                 background: $color-2;
+                box-shadow: inset 0 0 10px black;
                 -webkit-transform: scaleY(0);
                 transform: scaleY(0);
                 -webkit-transform-origin: 50% 100%;
@@ -156,6 +159,7 @@ print {
                 right: 0;
                 bottom: 0;
                 background: $color-2;
+                box-shadow: inset 0 0 10px black;
                 -webkit-transform: scaleX(0);
                 transform: scaleX(0);
                 -webkit-transform-origin: 0 50%;
@@ -198,6 +202,7 @@ print {
                 right: 0;
                 bottom: 0;
                 background: $color-2;
+                box-shadow: inset 0 0 10px black;
                 -webkit-transform: scaleX(0);
                 transform: scaleX(0);
                 -webkit-transform-origin: 100% 50%;

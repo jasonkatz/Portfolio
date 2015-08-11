@@ -63,13 +63,13 @@ include 'utils/vars.php'
                         <div class="header__menu--arrow js-header__menu--arrow">
                         </div>
                         <div class="header__menu--divider">
-                            <img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">
+                            <!--<img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">-->
                         </div>
                         <div class="header__menu--item js-header__menu--item type-2">
                             <?php echo get_field('slide_2_title'); ?>
                         </div>
                         <div class="header__menu--divider">
-                            <img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">
+                            <!--<img src="http://jasonkatz.me/wp-content/themes/portfolio/images/header_divider.svg">-->
                         </div>
                         <div class="header__menu--item js-header__menu--item type-2">
                             <?php echo get_field('slide_3_title'); ?>

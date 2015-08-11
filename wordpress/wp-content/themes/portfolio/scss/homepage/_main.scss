@@ -71,6 +71,7 @@ section {
                 border-radius: 50px;
                 box-shadow: 0 0 10px black;
                 background: #c7c8c9;
+                //background: $color-1;
                 position: relative;
                 margin: 5px;
                 cursor: pointer;
@@ -87,6 +88,31 @@ section {
                         -webkit-transform: translateX(-50%) translateY(-50%);
                                 transform: translateX(-50%) translateY(-50%);
                         opacity: .2;
+                    }
+                }
+            }
+
+            .content__contact-form {
+                .content__labels, .content__fields {
+                    width: 400px;
+                }
+
+                .content__labels {
+                    margin-top: 5px;
+                }
+
+                .content__fields {
+                    text-align: left;
+                    input {
+                        width: 80%;
+                        text-align: center;
+                    }
+
+                    textarea {
+                        width: 100%;
+                        resize: none;
+                        border: 1px solid #ccc;
+                        height: 200px;
                     }
                 }
             }

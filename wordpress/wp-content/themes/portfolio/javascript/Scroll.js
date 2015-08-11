@@ -145,6 +145,13 @@ function getScrollDirection(e) {
 }
 
 function getKeyDownScrollDirection(e) {
+    // If a form input is active, don't scroll
+    var active_element = document.activeElement;
+    if (active_element && (active_element.tagName.toLowerCase() == 'input' && active_element.type == 'text' ||
+        active_element.tagName.toLowerCase() == 'textarea')) {
+        return "";
+    }
+
     if (e.which == 40 || e.which == 39 || e.which == 34) {
         // Scroll down on downarrow, leftarrow and pagedown
         return 'down';

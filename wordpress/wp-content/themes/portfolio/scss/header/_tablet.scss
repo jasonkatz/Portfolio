@@ -1,0 +1,22 @@
+@media only screen and (min-width: $tablet-break),
+print {
+
+    header {
+        .header__mobile {
+            height: 75px;
+
+            .header__mobile--hamburger {
+                .hamburger__wrapper {
+                    .hamburger {
+                        top: 32px;
+                    }
+                }
+            }
+
+            .header__mobile--menu {
+                height: 75px;
+            }
+        }
+    }
+
+}

@@ -25,12 +25,12 @@ include("header.php"); ?>
                         <div class="content__column--wrapper">
                             <div class="content__column">
                                 <div class="content__personal-photo">
-                                    <img src="<?php echo get_field('slide_2_image'); ?>">
+                                    <img src="<?php echo get_field('slide_1_image'); ?>">
                                 </div>
                             </div>
                             <div class="content__column">
                                 <div class="content__personal-description type-4">
-                                    This is a test
+                                    <?php echo get_field('slide_1_description'); ?>
                                 </div>
                             </div>
                         </div>

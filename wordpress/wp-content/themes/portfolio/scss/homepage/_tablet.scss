@@ -1,0 +1,32 @@
+@media only screen and (min-width: $tablet-break),
+print {
+
+    section {
+        .section__content {
+            .content {
+                top: 50%;
+
+                .content__row--wrapper {
+                    .content__row {
+                        .content__column--wrapper {
+                            .content__column {
+                                float: left;
+                            }
+                        }
+                    }
+                }
+
+                .content__personal-photo, .content__personal-description {
+                    width: 300px;
+                }
+                .content__personal-photo {
+                    padding: 0;
+                }
+                .content__personal-description {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+}

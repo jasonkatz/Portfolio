@@ -10,7 +10,9 @@ print {
 
         .section__content {
             .content {
-                top: 50%;
+                .content__personal-photo, .content__personal-description {
+                    width: 400px;
+                }
             }
         }
 

@@ -17,12 +17,6 @@ section {
     height: 100vh;
     width: 100%;
 
-    // Move content down on the first slide
-    // so that the big header doesnt get in the way
-    &:first-child .section__content .content {
-        top: 55%;
-    }
-
     .section__content {
         height: 100%;
         width: 100%;
@@ -47,7 +41,6 @@ section {
                         display: inline-block;
 
                         .content__column {
-                            float: left;
                             padding: 10px;
                         }
                     }
@@ -64,8 +57,20 @@ section {
                 width: 100px;
             }
 
-            .content__personal-photo, .content__personal-description {
-                width: 500px;
+            .content__personal-description {
+                width: 300px;
+            }
+            .content__personal-description {
+                text-align: center;
+            }
+            .content__personal-photo {
+                width: 250px;
+                padding-top: 20px;
+                margin: 0 auto;
+
+                img {
+                    width: 100%;
+                }
             }
         }
     }

@@ -24,8 +24,9 @@ section {
         .content {
             // Content structure styling
             position: absolute;
-            top: 55%;
+            top: 50%;
             transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
             width: 100%;
             text-align: center;
 
@@ -64,8 +65,7 @@ section {
                 text-align: center;
             }
             .content__personal-photo {
-                width: 250px;
-                padding-top: 20px;
+                width: 225px;
                 margin: 0 auto;
 
                 img {

@@ -24,40 +24,13 @@ include("header.php"); ?>
                     <div class="content__row">
                         <div class="content__column--wrapper">
                             <div class="content__column">
-                                <div class="content__animation">
+                                <div class="content__personal-photo">
+                                    <img src="<?php echo get_field('slide_2_image'); ?>">
                                 </div>
                             </div>
                             <div class="content__column">
-                                <div class="content__row--text type-4">
-                                    <?php echo get_field('slide_1_content_1'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content__row">
-                        <div class="content__column--wrapper">
-                            <div class="content__column">
-                                <div class="content__animation">
-                                </div>
-                            </div>
-                            <div class="content__column">
-                                <div class="content__row--text type-4">
-                                    <?php echo get_field('slide_1_content_2'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content__row">
-                        <div class="content__column--wrapper">
-                            <div class="content__column">
-                                <div class="content__animation">
-                                </div>
-                            </div>
-                            <div class="content__column">
-                                <div class="content__row--text type-4">
-                                    <?php echo get_field('slide_1_content_3'); ?>
+                                <div class="content__personal-description type-4">
+                                    This is a test
                                 </div>
                             </div>
                         </div>
@@ -79,22 +52,6 @@ include("header.php"); ?>
         <div class="section__content">
             <div class="content">
 
-                <div class="content__row--wrapper">
-                    <div class="content__row">
-                        <div class="content__column--wrapper">
-                            <div class="content__column">
-                                <div class="content__personal-photo">
-                                    <img src="<?php echo get_field('slide_2_image'); ?>">
-                                </div>
-                            </div>
-                            <div class="content__column">
-                                <div class="content__personal-description type-4">
-                                    This is a test
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -108,49 +65,6 @@ include("header.php"); ?>
         <div class="section__content">
             <div class="content">
 
-                <div class="content__row--wrapper">
-                    <div class="content__row">
-                        <div class="content__column--wrapper">
-                            <div class="content__column">
-                                <div class="content__animation">
-                                </div>
-                            </div>
-                            <div class="content__column">
-                                <div class="content__row--text type-4">
-                                    <?php echo get_field('slide_1_content_1'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content__row">
-                        <div class="content__column--wrapper">
-                            <div class="content__column">
-                                <div class="content__animation">
-                                </div>
-                            </div>
-                            <div class="content__column">
-                                <div class="content__row--text type-4">
-                                    <?php echo get_field('slide_1_content_2'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content__row">
-                        <div class="content__column--wrapper">
-                            <div class="content__column">
-                                <div class="content__animation">
-                                </div>
-                            </div>
-                            <div class="content__column">
-                                <div class="content__row--text type-4">
-                                    <?php echo get_field('slide_1_content_3'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div> <!-- content -->
         </div>

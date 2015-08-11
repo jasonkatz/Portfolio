@@ -23,8 +23,8 @@ include 'utils/vars.php'
                 <div class="header__mobile--text type-1">
                     <?php echo get_field('name'); ?>
                 </div>
-                <div class="header__mobile--hamburger">
-                    <div class="hamburger__wrapper js-hamburger__wrapper">
+                <div class="header__mobile--hamburger js-header__mobile--hamburger">
+                    <div class="hamburger__wrapper">
                         <span class="hamburger"></span>
                     </div>
                 </div>

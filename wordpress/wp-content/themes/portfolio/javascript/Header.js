@@ -52,7 +52,7 @@ var header_items = document.getElementsByClassName('js-header__menu--items');
 var html_header_items = document.getElementsByClassName('js-header__menu--item');
 var header_item_list = [].slice.call(html_header_items);
 var header_arrow = document.getElementsByClassName('js-header__menu--arrow');
-var hamburger_wrapper = document.getElementsByClassName('js-hamburger__wrapper');
+var mobile_hamburger = document.getElementsByClassName('js-header__mobile--hamburger');
 var header_mobile_menu = document.getElementsByClassName('js-header__mobile--menu');
 var mobile_header_items = document.getElementsByClassName('js-mobile-header__menu--items');
 var html_mobile_header_items = document.getElementsByClassName('js-mobile-header__menu--item');
@@ -109,7 +109,7 @@ function shiftActive() {
 }
 
 function initializeHamburger() {
-    $(hamburger_wrapper).on("click", function(e) {
+    $(mobile_hamburger).on("click", function(e) {
         e.preventDefault();
         mobile_menu_open ? this.classList.remove('is-active') : this.classList.add('is-active');
         mobile_menu_open = !mobile_menu_open;

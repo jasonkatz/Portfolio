@@ -23,8 +23,11 @@ header {
             position: absolute;
             right: 0;
             height: 100%;
+            width: 70px;
             top: 50%;
             transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
 
             .hamburger__wrapper {
                 display: block;
@@ -37,8 +40,11 @@ header {
                 font-size: 0;
                 text-indent: -9999px;
                 appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
                 box-shadow: none;
                 border-radius: none;
+                -webkit-border-radius: none;
                 border: none;
                 cursor: pointer;
                 transition: background .3s;
@@ -56,7 +62,9 @@ header {
                     height: 5px;
                     background: white;
                     transform: translateY(50%);
-                    transition: transform .3s;
+                    -webkit-transform: translateY(50%);
+                    -ms-transform: translateY(50%);
+                    transition: transform .3s, -webkit-transform .3s, -ms-transform .3s;
 
                     &:before, &:after {
                         position: absolute;
@@ -71,22 +79,28 @@ header {
                     &:before {
                         top: -10px;
                         transform-origin: top right;
-                        transition: transform .3s, width .3s, top .3s;
+                        -webkit-transform-origin: top right;
+                        -ms-transform-origin: top right;
+                        transition: transform .3s, -webkit-transform .3s, -ms-transform .3s, width .3s, top .3s;
                     }
 
                     &:after {
                         bottom: -10px;
                         transform-origin: bottom right;
-                        transition: transform .3s, width .3s, bottom .3s;
+                        -webkit-transform-origin: bottom right;
+                        -ms-transform-origin: bottom right;
+                        transition: transform .3s, -webkit-transform .3s, -ms-transform .3s, width .3s, bottom .3s;
                     }
                 }
             }
 
-            .is-active {
+            &.is-active {
                 background: $color-3;
 
                 .hamburger {
                     transform: rotate(180deg) translateY(-50%);
+                    -webkit-transform: rotate(180deg) translateY(-50%);
+                    -ms-transform: rotate(180deg) translateY(-50%);
 
                     &:before, &:after {
                         width: 50%;
@@ -95,11 +109,15 @@ header {
                     &:before {
                         top: 0;
                         transform: translateX(20px) translateY(2px) rotate(45deg);
+                        -webkit-transform: translateX(20px) translateY(2px) rotate(45deg);
+                        -ms-transform: translateX(20px) translateY(2px) rotate(45deg);
                     }
 
                     &:after {
                         bottom: 0;
                         transform: translateX(20px) translateY(-2px) rotate(-45deg);
+                        -webkit-transform: translateX(20px) translateY(-2px) rotate(-45deg);
+                        -ms-transform: translateX(20px) translateY(-2px) rotate(-45deg);
                     }
                 }
             }
@@ -129,7 +147,7 @@ header {
                 }
 
                 .header__menu--item.mobile-menu__item--active {
-                    background: $color-1;
+                    background: $color-4;
                     transition: background .25s;
                 }
             }

@@ -1,0 +1,30 @@
+.portfolio__slideshow--wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .portfolio__slideshow--arrow-left,
+    .portfolio__slideshow--arrow-right {
+        position: absolute;
+        height: 100%;
+        z-index: 1;
+        background: rgba(#ccc, .8);
+    }
+    .portfolio__slideshow--arrow-left {
+        left: 0;
+    }
+    .portfolio__slideshow--arrow-right {
+        right: 0;
+    }
+
+    .portfolio__slideshow {
+        overflow: hidden;
+
+        .portfolio__slideshow--slide {
+            float: left;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+        }
+    }
+}

@@ -87,32 +87,41 @@ include("header.php"); ?>
                             <?php echo get_field('slide_2_heading'); ?>
                         </div>
                     </div>
-                    <?php
-                        $portfolio_items = get_field('portfolio_items');
-                        $args = array('post_type'              => 'portfolio_item-data',
-                                      'posts_per_page'         => -1,
-                                      'orderby'                => 'date',
-                                      'order'                  => 'DESC',
-                                      'cache_results'          => false,
-                                      'update_post_term_cache' => false,
-                                      'ignore_sticky_posts'    => true,
-                                      'update_post_meta_cache' => false);
-                        $the_query = new WP_Query($args);
-
-                    if ($the_query->have_posts()): ?>
-
-                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <div class="content__portfolio-title type-5">
-                                <?php echo get_the_title(); ?>
-                            </div>
-
-                        <?php wp_reset_postdata(); ?>
-                        <?php endwhile; ?>
-
-                    <?php endif; ?>
-
                     <div class="content__row">
-                        <div class="content__portfolio--slideshow-wrapper">
+                        <div class="portfolio__slideshow--wrapper">
+                            <div class="portfolio__slideshow--arrow-left js-portfolio__slideshow--arrow">
+                            </div>
+                            <div class="portfolio__slideshow--arrow-right js-portfolio__slideshow--arrow">
+                            </div>
+                            <div class="portfolio__slideshow js-portfolio__slideshow">
+
+                            <?php
+                                $portfolio_items = get_field('portfolio_items');
+                                $args = array('post__in'             => $portfolio_items,
+                                              'post_type'              => 'portfolio_item-data',
+                                              'posts_per_page'         => -1,
+                                              'orderby'                => 'date',
+                                              'order'                  => 'DESC',
+                                              'cache_results'          => false,
+                                              'update_post_term_cache' => false,
+                                              'ignore_sticky_posts'    => true,
+                                              'update_post_meta_cache' => false);
+                                $the_query = new WP_Query($args);
+
+                            if ($the_query->have_posts()): ?>
+
+                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+
+                                <div class="portfolio__slideshow--slide js-portfolio__slide">
+                                    Hi
+                                </div>
+
+                                <?php wp_reset_postdata(); ?>
+                                <?php endwhile; ?>
+
+                            <?php endif; ?>
+
+                            </div>
                         </div>
                     </div>
                 </div>

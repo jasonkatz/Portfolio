@@ -10,6 +10,10 @@ Mediator.register('header', module);
 module.receive = receive;
 
 function receive(msg, data) {
+    if (msg == 'WINDOW_RESIZE') {
+        readjustHeader();
+    }
+
     if (msg == 'HEADER_TOGGLE') {
         toggleHeader(data.size);
     }
@@ -22,17 +26,16 @@ function receive(msg, data) {
 
 // Readjust header on resize
 var resizeThrottle = setTimeout(function() {}, 0);
-function customHeaderOnResize() {
+function customOnResize() {
     window.addEventListener('resize', throttle);
     window.addEventListener('orientationchange', throttle);
-    readjustHeader();
 }
 
 function throttle() {
     clearTimeout(resizeThrottle);
     resizeThrottle = setTimeout(function() {
-        readjustHeader();
-    }, 200);
+        Mediator.send('WINDOW_RESIZE');
+    }, 100);
 }
 
 function readjustHeader() {
@@ -78,7 +81,8 @@ function initHeader() {
 
     initializeHamburger();
 
-    customHeaderOnResize();
+    readjustHeader();
+    customOnResize();
 }
 
 function shiftActive() {

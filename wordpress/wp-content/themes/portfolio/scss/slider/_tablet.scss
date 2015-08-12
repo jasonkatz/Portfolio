@@ -1,0 +1,14 @@
+@media only screen and (min-width: $tablet-break),
+print {
+
+    .portfolio__slideshow--wrapper {
+        .portfolio__slideshow {
+            .portfolio__slideshow--slide {
+                width: 300px;
+                height: 300px;
+                line-height: 300px;
+            }
+        }
+    }
+
+}

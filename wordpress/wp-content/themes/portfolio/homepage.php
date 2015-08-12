@@ -52,7 +52,7 @@ include("header.php"); ?>
             <div class="content">
 
                 <div class="content__row--wrapper">
-                    <div class="content__row">
+                    <!--<div class="content__row">
                         <div class="content__portfolio-title type-5">
                             <?php echo get_field('slide_2_heading'); ?>
                         </div>
@@ -79,6 +79,16 @@ include("header.php"); ?>
                                     </a>
                                 </div>
                             </div>
+                        </div>
+                    </div>-->
+
+                    <div class="content__row">
+                        <div class="content__portfolio-title type-5">
+                            <?php echo get_field('slide_2_heading'); ?>
+                        </div>
+                    </div>
+                    <div class="content__row">
+                        <div class="content__portfolio--slideshow-wrapper">
                         </div>
                     </div>
                 </div>

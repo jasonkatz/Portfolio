@@ -52,7 +52,7 @@ include("header.php"); ?>
             <div class="content">
 
                 <div class="content__row--wrapper">
-                    <!--<div class="content__row">
+<?php /*<div class="content__row">
                         <div class="content__portfolio-title type-5">
                             <?php echo get_field('slide_2_heading'); ?>
                         </div>
@@ -80,13 +80,37 @@ include("header.php"); ?>
                                 </div>
                             </div>
                         </div>
-                    </div>-->
+                        </div>*/?>
 
                     <div class="content__row">
                         <div class="content__portfolio-title type-5">
                             <?php echo get_field('slide_2_heading'); ?>
                         </div>
                     </div>
+                    <?php
+                        $portfolio_items = get_field('portfolio_items');
+                        $args = array('post_type'              => 'portfolio_item-data',
+                                      'posts_per_page'         => -1,
+                                      'orderby'                => 'date',
+                                      'order'                  => 'DESC',
+                                      'cache_results'          => false,
+                                      'update_post_term_cache' => false,
+                                      'ignore_sticky_posts'    => true,
+                                      'update_post_meta_cache' => false);
+                        $the_query = new WP_Query($args);
+
+                    if ($the_query->have_posts()): ?>
+
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            <div class="content__portfolio-title type-5">
+                                <?php echo get_the_title(); ?>
+                            </div>
+
+                        <?php wp_reset_postdata(); ?>
+                        <?php endwhile; ?>
+
+                    <?php endif; ?>
+
                     <div class="content__row">
                         <div class="content__portfolio--slideshow-wrapper">
                         </div>
@@ -152,7 +176,7 @@ include("header.php"); ?>
                                 </div>
                                 <div class="content__column">
                                     <div class="content__fields">
-                                        <textarea type="text" name="message_field" class="contact__field js-contact__message--field type-8 js-required__field"></textarea>
+                                        <textarea name="message_field" class="contact__field js-contact__message--field type-8 js-required__field"></textarea>
                                     </div>
                                 </div>
                             </form>

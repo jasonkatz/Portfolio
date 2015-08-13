@@ -52,35 +52,6 @@ include("header.php"); ?>
             <div class="content">
 
                 <div class="content__row--wrapper">
-<?php /*<div class="content__row">
-                        <div class="content__portfolio-title type-5">
-                            <?php echo get_field('slide_2_heading'); ?>
-                        </div>
-                    </div>
-                    <div class="content__row">
-                        <div class="content__column--wrapper">
-                            <div class="content__column">
-                                <div class="content__portfolio-block">
-                                    <a href="<?php echo get_field('slide_2_link_1'); ?>" target="_blank">
-                                        <div class="content__portfolio-block--overlay type-6">
-                                            Projects
-                                        </div>
-                                        <img src="<?php echo $THEME_URI ?>/images/gear-icon.svg">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="content__column">
-                                <div class="content__portfolio-block">
-                                    <a href="<?php echo get_field('slide_2_link_2'); ?>" target="_blank">
-                                        <div class="content__portfolio-block--overlay type-6">
-                                            Github
-                                        </div>
-                                        <img src="<?php echo $THEME_URI ?>/images/github-icon.svg">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        </div>*/?>
 
                     <div class="content__row">
                         <div class="content__portfolio-title type-5">
@@ -88,10 +59,14 @@ include("header.php"); ?>
                         </div>
                     </div>
                     <div class="content__row">
-                        <div class="portfolio__slideshow--wrapper">
+                        <div class="portfolio__slideshow--wrapper js-portfolio__slideshow--wrapper">
                             <div class="portfolio__slideshow--arrow-left js-portfolio__slideshow--arrow">
+                                <div class="arrow arrow__left">
+                                </div>
                             </div>
                             <div class="portfolio__slideshow--arrow-right js-portfolio__slideshow--arrow">
+                                <div class="arrow arrow__right">
+                                </div>
                             </div>
                             <div class="portfolio__slideshow js-portfolio__slideshow">
 
@@ -100,8 +75,7 @@ include("header.php"); ?>
                                 $args = array('post__in'             => $portfolio_items,
                                               'post_type'              => 'portfolio_item-data',
                                               'posts_per_page'         => -1,
-                                              'orderby'                => 'date',
-                                              'order'                  => 'DESC',
+                                              'orderby'                => 'post__in',
                                               'cache_results'          => false,
                                               'update_post_term_cache' => false,
                                               'ignore_sticky_posts'    => true,
@@ -113,7 +87,17 @@ include("header.php"); ?>
                                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 
                                 <div class="portfolio__slideshow--slide js-portfolio__slide">
-                                    Hi
+                                    <div class="slideshow__slide--content">
+                                        <div class="slide__content--title type-9">
+                                            <?php echo get_the_title(); ?>
+                                        </div>
+                                        <div class="slide__content--image">
+                                            <img src="<?php echo get_field('image'); ?>">
+                                        </div>
+                                        <div class="slide__content--summary type-10">
+                                            <?php echo get_field('summary'); ?>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <?php wp_reset_postdata(); ?>

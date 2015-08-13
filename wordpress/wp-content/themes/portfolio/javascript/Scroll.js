@@ -33,6 +33,7 @@ for (var i = 0; i < slides.length; ++i) {
 // Initial scroll values
 var current_slide = 0;
 var scrolling = false;
+var touch_scroll = false;
 
 function initScroll() {
     // Start at slide 1 ALWAYS
@@ -46,6 +47,7 @@ function initScroll() {
     wrapper.addEventListener("MozMousePixelScroll", snapScroll);
     wrapper.addEventListener("touchstart", snapScroll);
     wrapper.addEventListener("touchmove", snapScroll);
+    wrapper.addEventListener("touchend", snapScroll);
     document.addEventListener("keydown", snapScroll);
 
     // Bind chevron events
@@ -65,9 +67,23 @@ function snapScroll(e) {
         e.preventDefault();
     }
 
-    if (e.type == "touchstart") {
-        getTouchStartScrollDirection(e);
+    if (e.type == 'touchstart') {
+        // Handle touchstart if not slider
+        var slider_slides = [].slice.call(document.getElementsByClassName('js-portfolio__slide'));
+        if (!isDescendant(slider_slides, e.target)) {
+            touch_scroll = true;
+            getTouchStartScrollDirection(e);
+        }
         return;
+    } else if (e.type == 'touchend') {
+        // Reset touch_scroll flag
+        touch_scroll = false;
+        return;
+    } else if (e.type == 'touchmove') {
+        // If not touch_scroll, return
+        if (!touch_scroll) {
+            return;
+        }
     }
 
     // Only allow possible scroll if not already scrolling
@@ -203,4 +219,18 @@ function chevronClick(e) {
     e.preventDefault();
 
     handleScroll('down');
+}
+
+function isDescendant(parent, child) {
+    var match = false;
+    for (var i = 0; i < parent.length; ++i) {
+        var node = child.parentNode;
+        while (node != null) {
+            if (node == parent[i]) {
+                return true;
+            }
+            node = node.parentNode;
+        }
+    }
+    return false;
 }

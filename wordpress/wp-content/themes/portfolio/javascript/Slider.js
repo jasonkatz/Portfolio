@@ -35,16 +35,39 @@ var arrows = [].slice.call(document.getElementsByClassName('js-portfolio__slides
 
 // Initial scroll values
 var current_slide;
-var scrolling = false;
+var sliding = false;
 
 function initSlider() {
-    current_slide = 3;
+    // Set starting slide
+    current_slide = 0; // Start at the beginning (slide 0)
     adjustSlider();
+
+    // Initialize arrow click listeners
+    arrows[0].addEventListener('click', function() {
+        if (!sliding) {
+            sliding = true;
+            current_slide--;
+            adjustSlider();
+        }
+    });
+    arrows[1].addEventListener('click', function() {
+        if (!sliding) {
+            sliding = true;
+            current_slide++;
+            adjustSlider();
+        }
+    });
+
+    // Initialize swipe listeners
+    slides.forEach(function(obj) { obj.addEventListener("touchstart", detectSwipe); });
+    slides.forEach(function(obj) { obj.addEventListener("touchmove", detectSwipe); });
 }
 
 function adjustSlider() {
+    // Don't do anything if no slides are present
     if (!slides.length) return;
 
+    // Readjust slide and arrow width and positioning
     slide_width = slides[0].clientWidth;
     setWidth();
     focusCurrentSlide();
@@ -71,20 +94,33 @@ function focusCurrentSlide() {
         , {
             duration: 250
             , easing: 'easeInOutCubic'
+            , complete: function() {
+                sliding = false;
+            }
         }
     );
 
-    if (arrows.length != 2) return;
+    if (arrows.length != 2) return; // Don't do anything to the arrows if there are not 2
+
+    // Display both arrows
+    arrows.forEach(function(obj) {
+        obj.style.display = 'block';
+    });
 
     // Animate left arrow visibility
     Velocity(
         $(arrows[0])
         , {
-            'opacity': current_slide == 0 ? '0' : '1'
+            'opacity': !slides_hash[current_slide].before ? '0' : '1'
         }
         , {
             duration: 250
             , easing: 'easeInOutCubic'
+            , complete: function() {
+                if (!slides_hash[current_slide].before) {
+                    arrows[0].style.display = 'none';
+                }
+            }
         }
     );
 
@@ -92,11 +128,16 @@ function focusCurrentSlide() {
     Velocity(
         $(arrows[1])
         , {
-            'opacity': current_slide == (slides.length - 1) ? '0' : '1'
+            'opacity': !slides_hash[current_slide].after ? '0' : '1'
         }
         , {
             duration: 250
             , easing: 'easeInOutCubic'
+            , complete: function() {
+                if (!slides_hash[current_slide].after) {
+                    arrows[1].style.display = 'none';
+                }
+            }
         }
     );
 }
@@ -110,4 +151,49 @@ function setArrows() {
     arrows.forEach(function(obj) {
         obj.style.width = arrow_width + 'px';
     });
+}
+
+function detectSwipe(e) {
+    e.preventDefault();
+
+    // Get swipe direction
+    var dir = '';
+    if (e.type == 'touchstart') {
+        dir = getTouchStartDirection(e);
+    } else if (e.type == 'touchmove') {
+        dir = getTouchDirection(e);
+    }
+
+    // Execute slide change
+    if (!sliding && dir) {
+        sliding = true;
+        if (dir == 'right' && slides_hash[current_slide].after) {
+            current_slide++;
+        } else if (dir == 'left' && slides_hash[current_slide].before) {
+            current_slide--;
+        }
+        adjustSlider();
+    }
+}
+
+var previous_swipe = 0;
+
+function getTouchStartDirection(e) {
+    e.stopPropagation();
+    previous_swipe = e.touches[0].clientX;
+    return "";
+}
+
+function getTouchDirection(e) {
+    e.preventDefault();
+
+    var dir = "";
+
+    if (previous_swipe < e.touches[0].clientX) {
+        dir = "left";
+    } else if (previous_swipe > e.touches[0].clientX) {
+        dir = "right";
+    }
+
+    return dir;
 }

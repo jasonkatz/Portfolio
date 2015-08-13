@@ -32,7 +32,6 @@ section {
 
             .content__row--wrapper {
                 .content__row {
-                    overflow: hidden;
                     text-align: center;
 
                     .content__column--wrapper {
@@ -61,33 +60,8 @@ section {
             }
 
             .content__portfolio-title {
-                display: none;
-            }
-            .content__portfolio-block {
-                width: 175px;
-                height: 175px;
-                border-radius: 50px;
-                box-shadow: 0 0 10px black;
-                background: #c7c8c9;
-                //background: $color-1;
-                position: relative;
-                margin: 5px;
-                cursor: pointer;
-
-                a {
-                    color: black;
-
-                    img {
-                        width: 90%;
-                        height: 90%;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        -webkit-transform: translateX(-50%) translateY(-50%);
-                                transform: translateX(-50%) translateY(-50%);
-                        opacity: .2;
-                    }
-                }
+                -webkit-transform: translateY(-50px);
+                        transform: translateY(-50px);
             }
 
             .content__contact-form {

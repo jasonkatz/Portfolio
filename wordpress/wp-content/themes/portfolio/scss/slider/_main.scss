@@ -6,25 +6,69 @@
     .portfolio__slideshow--arrow-left,
     .portfolio__slideshow--arrow-right {
         position: absolute;
+        width: 90px;
         height: 100%;
         z-index: 1;
-        background: rgba(#ccc, .8);
+        background: rgba(#e0eeee, .7);
+        cursor: pointer;
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+        }
     }
     .portfolio__slideshow--arrow-left {
         left: 0;
+
+        .arrow__left {
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid $color-2;
+            -webkit-transform: translateY(-50%) translateX(-60%);
+                    transform: translateY(-50%) translateX(-60%);
+        }
     }
     .portfolio__slideshow--arrow-right {
         right: 0;
+
+        .arrow__right {
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid $color-2;
+            -webkit-transform: translateY(-50%) translateX(-40%);
+                    transform: translateY(-50%) translateX(-40%);
+        }
     }
 
     .portfolio__slideshow {
         overflow: hidden;
+        width: 99999px;
 
         .portfolio__slideshow--slide {
             float: left;
             width: 200px;
             height: 200px;
-            line-height: 200px;
+            padding: 20px;
+
+            .slideshow__slide--content {
+                .slide__content--title {
+                    height: 30px;
+                    margin-bottom: 10px;
+                }
+
+                .slide__content--image {
+                    float: left;
+                    margin-right: 20px;
+                    margin-bottom: 10px;
+                }
+
+                .slide__content--summary {
+                    text-align: left;
+                }
+            }
         }
     }
 }

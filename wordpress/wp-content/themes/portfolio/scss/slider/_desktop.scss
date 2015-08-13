@@ -6,7 +6,25 @@ print {
             .portfolio__slideshow--slide {
                 width: 500px;
                 height: 500px;
-                line-height: 500px;
+            }
+        }
+
+        .portfolio__slideshow--arrow-left,
+        .portfolio__slideshow--arrow-right {
+            width: 250px;
+        }
+        .portfolio__slideshow--arrow-left {
+            .arrow__left {
+                border-top: 60px solid transparent;
+                border-bottom: 60px solid transparent;
+                border-right: 60px solid $color-2;
+            }
+        }
+        .portfolio__slideshow--arrow-right {
+            .arrow__right {
+                border-top: 60px solid transparent;
+                border-bottom: 60px solid transparent;
+                border-left: 60px solid $color-2;
             }
         }
     }

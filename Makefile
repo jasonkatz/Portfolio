@@ -1,7 +1,7 @@
 PROJECT_ROOT_DIR=/home/pi/projects/sites/portfolio
 SASS_SCSS_DIR=www/wp-content/themes/portfolio/scss
 SASS_SCSS_MAIN=$(SASS_SCSS_DIR)/main.scss
-SASS_CSS_BUILD_DIR=www/wp-content/themes/portfolio/styles
+SASS_CSS_BUILD_DIR=www/wp-content/themes/portfolio/styles/build
 SASS_CSS_BUILD_MAIN_CSS=$(SASS_BUILD_DIR)/main.css
 SASS_CSS_BUILD_MAIN_MAP=$(SASS_BUILD_DIR)/main.css.map
 RELATIVE_JS_DIR=www/wp-content/themes/portfolio/javascript

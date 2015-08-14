@@ -51,22 +51,39 @@
             float: left;
             width: 200px;
             height: 200px;
-            padding: 20px;
+            padding: 10px;
 
             .slideshow__slide--content {
+                height: 100%;
+                overflow: hidden;
+
                 .slide__content--title {
                     height: 30px;
-                    margin-bottom: 10px;
+                    margin-bottom: 5px;
                 }
 
-                .slide__content--image {
-                    float: left;
-                    margin-right: 20px;
-                    margin-bottom: 10px;
+                .slide__content--top-wrapper {
+                    display: none;
                 }
 
-                .slide__content--summary {
-                    text-align: left;
+                .slide__content--mobile-caption {
+                    display: block;
+                    width: 100%;
+                    height: 50px;
+                    overflow: hidden;
+                }
+
+                .slide__content--links {
+                    height: 95px;
+                    padding: 10px;
+
+                    .slide__content--link {
+                        float: left;
+                        width: 50%;
+                        height: 100%;
+                        padding: 10px;
+
+                    }
                 }
             }
         }

@@ -2,13 +2,6 @@
 print {
 
     .portfolio__slideshow--wrapper {
-        .portfolio__slideshow {
-            .portfolio__slideshow--slide {
-                width: 300px;
-                height: 300px;
-            }
-        }
-
         .portfolio__slideshow--arrow-left,
         .portfolio__slideshow--arrow-right {
             width: 150px;
@@ -25,6 +18,50 @@ print {
                 border-top: 40px solid transparent;
                 border-bottom: 40px solid transparent;
                 border-left: 40px solid $color-2;
+            }
+        }
+
+        .portfolio__slideshow {
+            .portfolio__slideshow--slide {
+                width: 400px;
+                height: 400px;
+                padding: 20px;
+
+                .slideshow__slide--content {
+                    .slide__content--title {
+                        height: 25px;
+                        margin-bottom: 8px;
+                    }
+
+                    .slide__content--top-wrapper {
+                        display: block;
+                        height: 50%;
+                        overflow: hidden;
+
+                        .slide__content--image {
+                            display: block;
+                            float: left;
+                            margin-right: 20px;
+                            width: 50%;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        .slide__content--summary {
+                            text-align: left;
+                        }
+                    }
+
+                    .slide__content--mobile-caption {
+                        display: none;
+                    }
+
+                    .slide__content--links {
+                        height: 147px;
+                    }
+                }
             }
         }
     }

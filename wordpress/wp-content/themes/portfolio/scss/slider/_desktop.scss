@@ -27,6 +27,21 @@ print {
                 border-left: 60px solid $color-2;
             }
         }
+
+        .portfolio__slideshow {
+            .portfolio__slideshow--slide {
+                .slideshow__slide--content {
+                    .slide__content--title {
+                        height: 30px;
+                        margin-bottom: 10px;
+                    }
+
+                    .slide__content--links {
+                        height: 190px;
+                    }
+                }
+            }
+        }
     }
 
 }

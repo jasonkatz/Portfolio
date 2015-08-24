@@ -154,8 +154,6 @@ function setArrows() {
 }
 
 function detectSwipe(e) {
-    e.preventDefault();
-
     // Get swipe direction
     var dir = '';
     if (e.type == 'touchstart') {

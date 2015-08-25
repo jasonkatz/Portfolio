@@ -17,6 +17,19 @@ print {
                 .content__contact-title {
                     margin-bottom: 20px;
                 }
+
+                .content__contact-form {
+                    overflow: hidden;
+
+                    .content__column {
+                        float: left;
+                        padding: 10px;
+
+                        .content__fields {
+                            text-align: left;
+                        }
+                    }
+                }
             }
         }
 

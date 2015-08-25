@@ -62,8 +62,7 @@ function snapScroll(e) {
     e.stopPropagation();
 
     // Prevent default behavior on touchmove and home/end keypresses
-    if  (e.type == 'touchmove' ||
-        (e.type == 'keydown' && (e.which == 35 || e.which == 36))) {
+    if (e.type == 'keydown' && (e.which == 35 || e.which == 36)) {
         e.preventDefault();
     }
 
@@ -94,6 +93,9 @@ function snapScroll(e) {
 }
 
 function handleScroll(dir) {
+    // Only snap on non-touch devices
+    if (Modernizr.touch) return;
+
     // Scroll for cases where there is a slide to go to
     if (dir == 'up' && slides_hash[current_slide].before) {
         var new_slide = current_slide - 1;
@@ -202,7 +204,7 @@ function getTouchStartScrollDirection(e) {
 }
 
 function getTouchScrollDirection(e) {
-    e.preventDefault();
+    //e.preventDefault();
 
     var dir = "";
 

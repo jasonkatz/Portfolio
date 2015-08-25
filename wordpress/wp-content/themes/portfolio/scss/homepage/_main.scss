@@ -40,7 +40,7 @@ section {
                         display: inline-block;
 
                         .content__column {
-                            padding: 10px;
+                            padding: 3px;
                         }
                     }
                 }
@@ -67,7 +67,7 @@ section {
 
             .content__contact-form {
                 .content__labels, .content__fields {
-                    width: 400px;
+                    width: 275px;
                 }
 
                 .content__labels {
@@ -75,7 +75,7 @@ section {
                 }
 
                 .content__fields {
-                    text-align: left;
+                    text-align: center;
                     input {
                         width: 80%;
                         text-align: center;

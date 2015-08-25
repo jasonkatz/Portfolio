@@ -1,4 +1,4 @@
-@media only screen and (min-width: $desktop_break),
+@media only screen and (min-width: $desktop-break),
 print {
 
     .type-1 {
@@ -23,6 +23,22 @@ print {
     .type-10 {
         font-size: 12pt;
         line-height: 25px;
+    }
+
+    @media only screen and (max-height: $short-desktop-break),
+    print {
+
+        .type-1 {
+            font-size: 24pt;
+            font-weight: 600;
+            line-height: 75px;
+        }
+
+        .type-2 {
+            font-size: 14pt;
+            line-height: 75px;
+        }
+
     }
 
 }

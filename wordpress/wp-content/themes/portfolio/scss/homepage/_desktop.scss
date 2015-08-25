@@ -1,4 +1,4 @@
-@media only screen and (min-width: $desktop_break),
+@media only screen and (min-width: $desktop-break),
 print {
 
     section {
@@ -37,6 +37,28 @@ print {
                 cursor: pointer;
             }
         }
+    }
+
+    @media only screen and (max-height: $short-desktop-break),
+    print {
+
+        section {
+            .section__content {
+                .content {
+                    .content__personal-photo, .content__personal-description {
+                        height: 300px;
+                    }
+                    .content__personal-photo {
+                        width: auto;
+                    }
+                }
+            }
+
+            .chevron__wrapper {
+                display: none;
+            }
+        }
+
     }
 
 }

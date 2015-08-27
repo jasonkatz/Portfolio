@@ -77,4 +77,4 @@ include 'utils/vars.php'
             </div>
         </header>
 
-        <div id="wrapper">
+    <div id="wrapper">

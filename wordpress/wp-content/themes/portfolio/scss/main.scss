@@ -8,12 +8,14 @@
 @import 'homepage/main';
 @import 'header/main';
 @import 'slider/main';
+@import 'overlay/main';
 
 // Tablet styles
 @import 'typography/tablet';
 @import 'homepage/tablet';
 @import 'header/tablet';
 @import 'slider/tablet';
+@import 'overlay/tablet';
 
 
 // Desktop styles
@@ -21,3 +23,4 @@
 @import 'homepage/desktop';
 @import 'header/desktop';
 @import 'slider/desktop';
+@import 'overlay/desktop';

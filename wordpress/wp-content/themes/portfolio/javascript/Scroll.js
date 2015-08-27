@@ -31,7 +31,7 @@ for (var i = 0; i < slides.length; ++i) {
 }
 
 // Initial scroll values
-var current_slide = 0;
+var current_slide = 2;
 var scrolling = false;
 var touch_scroll = false;
 
@@ -59,6 +59,9 @@ function initScroll() {
 }
 
 function snapScroll(e) {
+    // Don't scroll if overlay is the target
+    if (e.target == document.getElementsByClassName('form__overlay')[0]) return;
+
     e.stopPropagation();
 
     // Prevent default behavior on touchmove and home/end keypresses

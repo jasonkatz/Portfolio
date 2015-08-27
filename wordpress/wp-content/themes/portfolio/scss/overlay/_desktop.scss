@@ -1,0 +1,10 @@
+@media only screen and (min-width: $desktop-break),
+print {
+
+    .form__overlay {
+        .form__overlay--close-button {
+            height: 7.5vh;
+        }
+    }
+
+}

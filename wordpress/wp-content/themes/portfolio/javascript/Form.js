@@ -31,6 +31,7 @@ var overlay_close_button = overlay.getElementsByClassName('form__overlay--close-
 var overlay_label = overlay.getElementsByTagName('label')[0];
 var overlay_input = overlay.getElementsByTagName('input')[0];
 var overlay_textarea = overlay.getElementsByTagName('textarea')[0];
+var submit_button = document.getElementsByClassName('form__submit-button')[0];
 
 function initForm() {
     inputs.forEach(function(obj) {
@@ -38,6 +39,7 @@ function initForm() {
     });
     overlay_close_button.addEventListener("click", closeFormOverlay);
     overlay.addEventListener("keydown", closeFormOverlay);
+    submit_button.addEventListener("click", submitForm);
 }
 
 // Initialize global input index to -1, for no input selected
@@ -151,11 +153,154 @@ function animateCloseOverlay(input_index) {
                     $(inputs[input_index])
                     , "scroll"
                     , {
-                        duration: 100
+                        duration: 50
                         , easing: "easeInOutCubic"
                     }
                 );
             }
+        }
+    );
+}
+
+function submitForm(e) {
+    var error = false;
+
+    var validate_data;
+    if (!(validate_data = validateForm()).valid) {
+        error = true;
+    }
+
+    if (!error) {
+        sendEmail(error, validate_data)
+    } else {
+        finishFormSubmit(error, validate_data);
+    }
+}
+
+function finishFormSubmit(error, validate_data, email_data) {
+    if (error) {
+        errorUpdateForm(validate_data, email_data);
+    } else {
+        successUpdateForm();
+    }
+}
+
+function validateForm() {
+    var invalid_inputs = [false, false, false];
+    var input_problem = ['success', 'success', 'success'];
+    if (inputs[0].value == null || inputs[0].value == '') {
+        invalid_inputs[0] = true;
+        input_problem[0] = 'empty';
+    }
+    if (inputs[1].value == null || inputs[1].value == '') {
+        invalid_inputs[1] = true;
+        input_problem[1] = 'empty';
+    }
+    if (inputs[2].value == null || inputs[2].value == '') {
+        invalid_inputs[2] = true;
+        input_problem[2] = 'empty';
+    }
+
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if (!invalid_inputs[1] && !re.test(inputs[1].value)) {
+        invalid_inputs[1] = true;
+        input_problem[1] = 'invalid';
+    }
+
+    var valid = true;
+    if (invalid_inputs[0] || invalid_inputs[1] || invalid_inputs[2]) {
+        valid = false;
+    }
+
+    return {
+        valid: valid,
+        problems: input_problem
+    };
+}
+
+function sendEmail(error, validate_data) {
+    var input_data = [
+        inputs[0].value,
+        inputs[1].value,
+        inputs[2].value
+    ]; var result = {
+        success: false,
+        message: ''
+    };
+    $.ajax({
+        data: input_data,
+        url: 'email.php?type=sendEmail',
+        method: 'POST',
+        success: function(msg) {
+            result.success = true;
+            finishFormSubmit(error, validate_data, result);
+        }, error: function(xhr, status, err) {
+            result.message = err;
+            error = true;
+            finishFormSubmit(error, validate_data, result);
+        }
+    });
+}
+
+// Grab container element
+var form_container = inputs[0].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+// Grab title element
+var title = form_container.children[0].children[0].children[0];
+var title_base = title.innerHTML;
+function successUpdateForm() {
+    // Change title
+    title.innerHTML = title_base + ' - Success!';
+
+    // Make sure that input borders aren't red
+    inputs.forEach(function(obj) {
+        if (obj.tagName == 'INPUT') {
+            obj.style.border = '2px inset';
+            obj.style.borderColor = 'none';
+        } else if (obj.tagName == 'TEXTAREA') {
+            obj.style.borderColor = '#ccc';
+        }
+    });
+
+    // Animate background
+    form_container.style.backgroundColor = '#98ff98';
+    Velocity(
+        $(form_container)
+        , {
+            backgroundColor: '#fff'
+        }
+        , {
+            duration: 500
+            , easing: 'linear'
+        }
+    );
+}
+
+function errorUpdateForm(validate_data, email_data) {
+    // Change title (and form) based on error
+    if (validate_data && !validate_data.valid) {
+        title.innerHTML = title_base + ' - Validation Error!';
+        inputs.forEach(function(obj, index) {
+            // Turn input border red for invalid inputs
+            if (validate_data[index] != 'success') {
+                obj.style.borderColor = '#f5697c';
+            }
+        });
+    }
+
+    if (email_data && !email_data.success) {
+        title.innerHTML = title_base + ' - Email Error!';
+    }
+
+    // Animate background
+    form_container.style.backgroundColor = '#f5697c';
+    Velocity(
+        $(form_container)
+        , {
+            backgroundColor: '#fff'
+        }
+        , {
+            duration: 500
+            , easing: 'linear'
         }
     );
 }

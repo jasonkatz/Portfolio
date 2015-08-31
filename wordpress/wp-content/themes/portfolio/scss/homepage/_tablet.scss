@@ -26,6 +26,12 @@ print {
                     .content__labels, .content__fields {
                         width: 400px;
                     }
+
+                    .content__fields {
+                        textarea {
+                            height: 200px;
+                        }
+                    }
                 }
             }
         }

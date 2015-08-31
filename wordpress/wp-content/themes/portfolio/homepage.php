@@ -124,6 +124,17 @@ include("header.php"); ?>
                             </form>
                         </div>
                     </div>
+                    <div class="content__row" style="margin-bottom: -100px;">
+                        <div class="content__column--wrapper">
+                            <div class="content__column">
+                                <form class="content__contact-form">
+                                    <div class="form__submit-button type-11">
+                                        Submit
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div> <!-- content -->

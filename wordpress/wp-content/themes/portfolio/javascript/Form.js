@@ -34,8 +34,12 @@ var overlay_textarea = overlay.getElementsByTagName('textarea')[0];
 var submit_button = document.getElementsByClassName('form__submit-button')[0];
 
 function initForm() {
+    // Prevent page refresh on form submit
+    $('form').submit(function() { return false; });
+
     inputs.forEach(function(obj) {
         obj.addEventListener("focusin", openFormOverlay);
+        obj.addEventListener("keydown", submitForm);
     });
     overlay_close_button.addEventListener("click", closeFormOverlay);
     overlay.addEventListener("keydown", closeFormOverlay);
@@ -163,6 +167,8 @@ function animateCloseOverlay(input_index) {
 }
 
 function submitForm(e) {
+    if (e.type == 'keydown' && e.which != 13) return;
+
     var error = false;
 
     var validate_data;
@@ -218,7 +224,10 @@ function validateForm() {
     };
 }
 
+var send_state = 'not_sent';
 function sendEmail(error, validate_data) {
+    if (send_state == 'sending') return;
+
     var input_data = {
         name: inputs[0].value,
         email: inputs[1].value,
@@ -229,9 +238,10 @@ function sendEmail(error, validate_data) {
         message: ''
     };
 
-    /*// Set success to fake async call
+    // Set success to fake async call
     result.success = true;
-    finishFormSubmit(error, validate_data, result);*/
+    finishFormSubmit(error, validate_data, result);
+    send_state = 'sending';
     // Send email
     $.ajax({
         data: input_data,
@@ -240,11 +250,13 @@ function sendEmail(error, validate_data) {
         success: function(msg) {
             done = true;
             result.success = true;
+            send_state = 'sent';
             finishFormSubmit(error, validate_data, result);
         }, error: function(xhr, status, err) {
             done = true;
             result.message = err;
             error = true;
+            send_state = 'error';
             finishFormSubmit(error, validate_data, result);
         }
     });

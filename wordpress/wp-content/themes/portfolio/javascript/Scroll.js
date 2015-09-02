@@ -31,7 +31,7 @@ for (var i = 0; i < slides.length; ++i) {
 }
 
 // Initial scroll values
-var current_slide = 2;
+var current_slide = 0;
 var scrolling = false;
 var touch_scroll = false;
 

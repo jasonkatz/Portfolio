@@ -219,22 +219,30 @@ function validateForm() {
 }
 
 function sendEmail(error, validate_data) {
-    var input_data = [
-        inputs[0].value,
-        inputs[1].value,
-        inputs[2].value
-    ]; var result = {
+    var input_data = {
+        name: inputs[0].value,
+        email: inputs[1].value,
+        message: inputs[2].value
+    };
+    var result = {
         success: false,
         message: ''
     };
+
+    /*// Set success to fake async call
+    result.success = true;
+    finishFormSubmit(error, validate_data, result);*/
+    // Send email
     $.ajax({
         data: input_data,
         url: 'email.php?type=sendEmail',
         method: 'POST',
         success: function(msg) {
+            done = true;
             result.success = true;
             finishFormSubmit(error, validate_data, result);
         }, error: function(xhr, status, err) {
+            done = true;
             result.message = err;
             error = true;
             finishFormSubmit(error, validate_data, result);

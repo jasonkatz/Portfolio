@@ -14,6 +14,8 @@ include 'utils/vars.php'
         <link rel="shortcut icon" href="<?php echo $THEME_URI ?>/favicon.ico" />
 
         <script src="<?php echo $THEME_URI ?>/javascript/modernizr.js"></script>
+
+        <title>Jason Katz</title>
     </head>
 
     <div id="page">

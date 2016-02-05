@@ -1,4 +1,4 @@
-PROJECT_ROOT_DIR=/home/pi/projects/sites/portfolio
+PROJECT_ROOT_DIR=/var/www/jasonkatz.me
 SASS_SCSS_DIR=www/wp-content/themes/portfolio/scss
 SASS_SCSS_MAIN=$(SASS_SCSS_DIR)/main.scss
 SASS_CSS_BUILD_DIR=www/wp-content/themes/portfolio/styles/build

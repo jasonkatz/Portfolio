@@ -51,3 +51,6 @@ wordpress/wp-content/themes/portfolio/javascript/node_modules
 # Sass cache
 .sass-cache/*
 .sass-cache
+
+# Wordpress stuff
+wordpress/wp-config.php

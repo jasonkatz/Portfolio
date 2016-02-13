@@ -16,10 +16,10 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'portfolio');
+define('DB_NAME', 'portfolio_live');
 
 /** MySQL database username */
-define('DB_USER', 'portfolio');
+define('DB_USER', 'portfolio_live');
 
 /** MySQL database password */
 define('DB_PASSWORD', 'io$$3232');

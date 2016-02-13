@@ -47,3 +47,7 @@ wordpress/wp-includes/*
 # Node modules
 wordpress/wp-content/themes/portfolio/javascript/node_modules/*
 wordpress/wp-content/themes/portfolio/javascript/node_modules
+
+# Sass cache
+.sass-cache/*
+.sass-cache
